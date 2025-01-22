@@ -1,0 +1,60 @@
+{
+  "certificates": [
+    {
+      "title": "Workshop Publikasi untuk Kenaikan Jabatan Fungsional Dosen (JAD)",
+      "date": "13 Desember 2024",
+      "issuedBy": "Fakultas Ilmu Komputer, Universitas Pamulang",
+      "role": "Panitia",
+      "type": "Workshop",
+      "imageUrl": "assets/image/sertif/sertifikat1.jpg"
+    },
+    {
+      "title": "Kuliah Umum Fakultas Ilmu Komputer \"Kuliah Efektif, Pendidikan Tinggi, dan Meraih Sukses di Dunia Teknologi\"",
+      "date": "24 Oktober 2024",
+      "issuedBy": "Universitas Pamulang",
+      "role": "Panitia",
+      "type": "General Lecture",
+      "imageUrl": "assets/image/sertif/sertifikat2.jpg"
+    },
+    {
+      "title": "2nd International Conference on Emerging Technologies and Sustainability (ICETS 2024)",
+      "date": "31 Agustus - 01 September 2024",
+      "issuedBy": "Universitas Pamulang & UMT",
+      "role": "Attendee",
+      "type": "Conference",
+      "imageUrl": "assets/image/sertif/sertifikat3.jpg"
+    },
+    {
+      "title": "Seminar Nasional \"Welcome to the Power of Artificial Intelligence Era: Digital Transformation, Human Collaboration, and Vision of the Future\"",
+      "date": "27 Januari 2024",
+      "issuedBy": "Program Studi Sistem Informasi Universitas Pamulang & Sistem Informasi UNPAM PSDKU Serang",
+      "role": "Participant",
+      "type": "Seminar",
+      "imageUrl": "assets/image/sertif/sertifikat4.jpg"
+    },
+    {
+      "title": "Seminar Nasional \"The Future of Work: AI and Big Data in the Age of Automation\"",
+      "date": "08 Juni 2023",
+      "issuedBy": "Universitas Pamulang",
+      "role": "Participant",
+      "type": "Seminar",
+      "imageUrl": "assets/image/sertif/sertifikat5.jpg"
+    },
+    {
+      "title": "Seminar Nasional \"Unlocking The Potential of Big Data Knowledge Towards The Era Of Society 5.0\"",
+      "date": "26 November 2022",
+      "issuedBy": "Universitas Pamulang",
+      "role": "Participant",
+      "type": "Seminar",
+      "imageUrl": "assets/image/sertif/sertifikat6.jpg"
+    },
+    {
+      "title": "Workshop \"Developing Website With React and API Integration\"",
+      "date": "23-24 November 2022",
+      "issuedBy": "Universitas Pamulang",
+      "role": "Participant",
+      "type": "Workshop",
+      "imageUrl": "assets/image/sertif/sertifikat7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,402 @@
+[
+  {
+    "title": "Pendidikan Inklusif",
+    "category": "Illustration",
+    "image": "assets/image/porto/poster.jpg",
+    "caption": "Pendidikan Inklusif - Illustration"
+  },
+  {
+    "title": "Bhinneka",
+    "category": "Illustration",
+    "image": "assets/image/porto/bhineka.png",
+    "caption": "Bhinneka - Illustration"
+  },
+  {
+    "title": "Kontinuitas Budaya",
+    "category": "Illustration",
+    "image": "assets/image/porto/kontinuitas.png",
+    "caption": "Kontinuitas Budaya - Illustration"
+  },
+  {
+    "title": "Stop Sexual Harassment",
+    "category": "Illustration",
+    "image": "assets/image/porto/kuroneko.png",
+    "caption": "Stop Sexual Harassment - Illustration"
+  },
+  {
+    "title": "Auto Translator",
+    "category": "project",
+    "image": "https://github.com/user-attachments/assets/ef0748cc-bb30-49c7-af08-e60c58ec3dcf",
+    "github_link": "https://github.com/lukman754/Auto-Translator",
+    "overview": "Auto Translator is a desktop application that enables real-time text translation with automatic language detection. Users can translate selected text across various applications using keyboard shortcuts for quick and accurate translations.",
+    "features": [
+      "Real-time translation from any application.",
+      "Automatic source language detection.",
+      "Smart language switching to optimize translation.",
+      "Convenient keyboard shortcuts for fast operation.",
+      "User-friendly interface with real-time translation preview."
+    ],
+    "technologies": [
+      { "name": "Python", "icon": "fab fa-python" },
+      { "name": "Tkinter", "icon": "fas fa-window-maximize" },
+      { "name": "Googletrans", "icon": "fas fa-language" },
+      { "name": "Pyperclip", "icon": "fas fa-clipboard" },
+      { "name": "Pynput", "icon": "fas fa-keyboard" }
+    ]
+  },
+  {
+    "title": "XAMPP Tools",
+    "category": "project",
+    "image": "https://github.com/user-attachments/assets/c23d57a3-3aba-41d2-9a06-d7134ecb4e72",
+    "github_link": "https://github.com/lukman754/Xampp-tools",
+    "overview": "This program is a simple tool to manage key XAMPP functionalities, such as opening the XAMPP Control Panel, changing the Apache port, fixing the MySQL directory, and accessing phpMyAdmin. It features a user-friendly GUI built with tkinter.",
+    "features": [
+      "Create New Project: Creates a new PHP project in the htdocs folder with a basic structure.",
+      "Project Quick Access: Displays existing projects from htdocs as interactive buttons.",
+      "Open XAMPP & Start Apache/MySQL: Opens the XAMPP Control Panel and starts the services.",
+      "Open phpMyAdmin: Launches phpMyAdmin in the default browser.",
+      "Change Apache Port: Allows users to change the default Apache port.",
+      "Fix MySQL: Repairs the MySQL data directory using backup files."
+    ],
+    "technologies": [
+      { "name": "Python", "icon": "fab fa-python" },
+      { "name": "Tkinter", "icon": "fab fa-python" },
+      { "name": "XAMPP", "icon": "fab fa-xampp" }
+    ]
+  },
+  {
+    "title": "UNPAM Profile - Landing Page Frontend",
+    "category": "project",
+    "image": "https://github.com/user-attachments/assets/def09d5e-bcb3-4ae8-8afc-0c1a0b3e4e0b",
+    "github_link": "https://github.com/SatriyoRizkyansah/unpam-profile",
+    "website": "https://unpam.my.id",
+    "overview": "UNPAM Profile is a modern, responsive, and informative landing page designed to showcase Universitas Pamulang (UNPAM). The project highlights the university's key features, faculties, programs, and events, creating a professional digital presence.",
+    "features": [
+      "Interactive Homepage with modern design elements.",
+      "Detailed university profile including history, vision, mission, and core values.",
+      "Comprehensive list of faculties and study programs with descriptions.",
+      "News and events section featuring campus highlights and upcoming activities.",
+      "Photo gallery showcasing campus life, facilities, and activities.",
+      "Contact information with integrated Google Maps location."
+    ],
+    "technologies": [
+      { "name": "HTML5", "icon": "fab fa-html5" },
+      { "name": "CSS3", "icon": "fab fa-css3-alt" },
+      { "name": "JavaScript", "icon": "fab fa-js" },
+      { "name": "Bootstrap", "icon": "fab fa-bootstrap" }
+    ]
+  },
+  {
+    "title": "Quicksurvey-Myunpam",
+    "category": "project",
+    "image": "https://github.com/user-attachments/assets/61b82de1-09c0-45bc-8196-3813c6c939af",
+    "github_link": "https://github.com/lukman754/Quicksurvey-Myunpam",
+    "overview": "Quicksurvey-Myunpam is a Chrome extension designed to automate the process of filling out the KHS (Kartu Hasil Studi) questionnaire on MyUnpam. Key features include:",
+    "features": [
+      "Select rating from 1-5 stars",
+      "Choose 'Agree All' to automatically select 'Agree' for all questions",
+      "Random selection (without 'Strongly Disagree')"
+    ],
+    "technologies": [
+      { "name": "Chrome Extensions", "icon": "fab fa-chrome" },
+      { "name": "JavaScript", "icon": "fab fa-js" },
+      { "name": "HTML", "icon": "fab fa-html5" },
+      { "name": "CSS", "icon": "fab fa-css3-alt" }
+    ]
+  },
+  {
+    "title": "E-Learning-Tracking",
+    "category": "project",
+    "image": "https://github.com/user-attachments/assets/487a85ca-0535-4615-b59c-4fa7f32ba113",
+    "github_link": "https://github.com/lukman754/E-Learning-Tracking",
+    "overview": "E-Learning-Tracking is a Chrome extension designed to track discussion forums in E-Learning that have not been completed or answered by students. It will display this information on the main page, eliminating the need for students to open and search through each course individually.",
+    "features": [
+      "Track all unfinished discussion forums in all courses on My Courses page (tracking time: 10-20 seconds)",
+      "Track all unfinished discussion forums in a specific course page (tracking time: 5-8 seconds)"
+    ],
+    "technologies": [
+      { "name": "Chrome Extensions", "icon": "fab fa-chrome" },
+      { "name": "JavaScript", "icon": "fab fa-js" },
+      { "name": "HTML", "icon": "fab fa-html5" },
+      { "name": "CSS", "icon": "fab fa-css3-alt" }
+    ]
+  },
+  {
+    "title": "RENTCOS",
+    "category": "project",
+    "image": "https://github.com/user-attachments/assets/58a2b256-5fef-44d5-ba7b-9a37dc31b5b7",
+    "github_link": "https://github.com/lukman754/rentcos",
+    "overview": "RentCos is a web-based application designed to make it easier for users to search for and rent cosplay costumes. Key features include costume search, costume details, reservation system, rating and review system, secure payments, and notifications.",
+    "features": [
+      "Costume Search: Users can easily search for available costumes.",
+      "Costume Details: Detailed information about each costume is available.",
+      "Reservation System: Allows users to reserve costumes for a specified period.",
+      "Rating and Review: Users can rate and leave reviews for costumes they have rented.",
+      "Secure Payments: Offers secure payment options for renting costumes.",
+      "Notifications: Users receive notifications about their reservations and payments."
+    ],
+    "technologies": [
+      { "name": "HTML", "icon": "fab fa-html5" },
+      { "name": "CSS", "icon": "fab fa-css3-alt" },
+      { "name": "Bootstrap", "icon": "fab fa-bootstrap" },
+      { "name": "PHP", "icon": "fab fa-php" },
+      { "name": "JavaScript", "icon": "fab fa-js" },
+      { "name": "MySQL", "icon": "fab fa-mysql" }
+    ]
+  },
+  {
+    "title": "Apache Autoindex Theme",
+    "category": "project",
+    "image": "https://github.com/lukman754/localhost-dashboard/assets/43158553/be525a07-bc7f-4231-841e-bd6a63300a73",
+    "github_link": "https://github.com/lukman754/apache-autoindex-theme",
+    "overview": "Customizes the localhost dashboard to mimic a file explorer interface for intuitive navigation. Displays folder names, modification dates, types, and sizes, supporting various project structures. Enhance your development experience with a user-friendly, visually appealing dashboard.",
+    "features": [
+      "Mimic file explorer interface",
+      "Display folder names, modification dates, types, and sizes",
+      "Supports various project structures",
+      "Enhances development experience with a visually appealing dashboard"
+    ],
+    "technologies": [
+      { "name": "Apache", "icon": "fab fa-apache" },
+      { "name": "HTML", "icon": "fab fa-html5" },
+      { "name": "CSS", "icon": "fab fa-css3-alt" },
+      { "name": "PHP", "icon": "fab fa-php" },
+      { "name": "JavaScript", "icon": "fab fa-js" }
+    ]
+  },
+  {
+    "title": "SAW & WP Calculations",
+    "category": "project",
+    "image": "https://private-user-images.githubusercontent.com/43158553/404956611-85389299-4bef-4d00-b1d8-d182bd781ca4.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczOTMwMTksIm5iZiI6MTczNzM5MjcxOSwicGF0aCI6Ii80MzE1ODU1My80MDQ5NTY2MTEtODUzODkyOTktNGJlZi00ZDAwLWIxZDgtZDE4MmJkNzgxY2E0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMjAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTIwVDE3MDUxOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdmMzJkMzdhYTA2YzRhZDgyNTEzNGRjNTFjODdjYzg2YTA2N2M0MThiNjI0NDIzMjgwMGFlNmM1YzdkNTVhYTYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.9vtAm2YZg1JDMQbotF-MNvDL6e6d8A7WTNlNZvdWZlY",
+    "github_link": "https://github.com/lukman754/chopin-tools",
+    "overview": "Chopin Tools is a robust collection of calculators for various mathematical methods, now including the Simple Additive Weighting (SAW) method. This repository is designed to assist students, educators, and professionals by providing quick and precise calculations for a wide range of mathematical techniques.",
+    "features": [
+      "Supports various mathematical methods including SAW",
+      "User-friendly interface for easy navigation",
+      "Quick and precise calculations",
+      "Built with popular web technologies for seamless use",
+      "Accessible for students, educators, and professionals"
+    ],
+    "technologies": [
+      { "name": "HTML", "icon": "fab fa-html5" },
+      { "name": "CSS", "icon": "fab fa-css3-alt" },
+      { "name": "Bootstrap", "icon": "fab fa-bootstrap" },
+      { "name": "PHP", "icon": "fab fa-php" },
+      { "name": "JavaScript", "icon": "fab fa-js" }
+    ]
+  },
+  {
+    "title": "Fore Coffee",
+    "category": "project",
+    "image": "https://github.com/user-attachments/assets/c05a80d7-7206-4d07-b731-a80bfd4b9a41",
+    "github_link": "https://github.com/lukman754/fore-coffee",
+    "overview": "Fore Coffee is a simple web-based coffee ordering platform that provides an easy and efficient way to order coffee. The platform includes a shopping cart feature that allows customers to add coffee items and place their order directly. It also enhances the payment experience by converting a static QRIS into a dynamic one for convenience and security.",
+    "features": [
+      "Shopping cart feature for selecting and managing coffee orders.",
+      "Dynamic QRIS for payment, allowing users to pay securely and conveniently.",
+      "Simple and user-friendly interface for quick coffee order processing.",
+      "Responsive design for a seamless experience across devices."
+    ],
+    "technologies": [
+      { "name": "HTML", "icon": "fab fa-html5" },
+      { "name": "CSS", "icon": "fab fa-css3-alt" },
+      { "name": "Bootstrap", "icon": "fab fa-bootstrap" },
+      { "name": "JavaScript", "icon": "fab fa-js" }
+    ]
+  },
+  {
+    "title": "Kredit Aktivitas Kemahasiswaan",
+    "category": "project",
+    "image": "https://github.com/user-attachments/assets/09c812e7-e227-4d54-a977-b59a6f86ec2f",
+    "github_link": "https://github.com/lukman754/Kredit-Aktivitas-Mahasiswa",
+    "overview": "Kredit Aktivitas Kemahasiswaan is a web application designed to help track and manage student activities for credit accumulation. It allows students to monitor their progress in various activities, calculate credits, and view reports.",
+    "features": [
+      "Track and manage student activities for credit accumulation.",
+      "Automatic credit calculation based on activity difficulty.",
+      "Student progress monitoring and report generation.",
+      "Admin management for activity and credit settings."
+    ],
+    "technologies": [
+      { "name": "HTML", "icon": "fab fa-html5" },
+      { "name": "CSS", "icon": "fab fa-css3-alt" },
+      { "name": "Bootstrap", "icon": "fab fa-bootstrap" },
+      { "name": "PHP", "icon": "fab fa-php" },
+      { "name": "MySQL", "icon": "fab fa-mysql" }
+    ]
+  },
+
+  { "image": "assets/image/feed/ebook (1).jpg", "category": "feed" },
+  { "image": "assets/image/feed/etika (1).jpg", "category": "feed" },
+  { "image": "assets/image/feed/coding (1).jpg", "category": "feed" },
+  { "image": "assets/image/feed/jurnal (1).jpg", "category": "feed" },
+  { "image": "assets/image/feed/5web (5).jpg", "category": "feed" },
+  { "image": "assets/image/feed/magang (1).jpg", "category": "feed" },
+  { "image": "assets/image/feed/mhs-ti (1).jpg", "category": "feed" },
+  { "image": "assets/image/feed/rapat.jpg", "category": "feed" },
+  { "image": "assets/image/feed/koordinasi.jpg", "category": "feed" },
+  { "image": "assets/image/feed/langkah (1).jpg", "category": "feed" },
+  { "image": "assets/image/feed/kebiasaan (1).jpg", "category": "feed" },
+  { "image": "assets/image/feed/cgv.jpg", "category": "feed" },
+  { "image": "assets/image/feed/tomoro.jpg", "category": "feed" },
+  { "image": "assets/image/feed/fore.jpg", "category": "feed" },
+
+  {
+    "image": "assets/image/uiux/filkom.png",
+    "figma": "https://www.figma.com/design/DcBYtUgpetKP4ofkyZwAoZ/Filkom-Shop?node-id=0-1&t=seXncHLLY4xhTXg3-1",
+    "category": "uiux"
+  },
+
+  { "image": "assets/image/misc/flyer (2).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer (3).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer (4).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer (5).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer (6).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer (7).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer (8).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer (9).png", "category": "misc" },
+
+  { "image": "assets/image/misc/flyer (1).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer2 (1).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer2 (2).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer2 (3).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer3 (1).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer3 (2).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer3 (3).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer3 (4).png", "category": "misc" },
+  { "image": "assets/image/misc/flyer3 (5).png", "category": "misc" },
+
+  {
+    "video": "assets/image/animation/animasi.mp4",
+    "category": "animation"
+  },
+
+  {
+    "image": "assets/image/modeling/3d1.jpg",
+    "category": "modeling"
+  },
+  {
+    "image": "assets/image/modeling/3d2.jpg",
+    "category": "modeling"
+  },
+  {
+    "image": "assets/image/modeling/3d3.jpg",
+    "category": "modeling"
+  },
+  {
+    "image": "assets/image/modeling/3d4.jpg",
+    "category": "modeling"
+  },
+
+  {
+    "image": "https://scontent.fcgk10-2.fna.fbcdn.net/v/t39.30808-6/429893505_2103588570002097_2634798260093504439_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFjEuRzEVW282fPkYLcZj8AfWe5diNUhb59Z7l2I1SFvn2zdzBaAnJEWIq40u_TtSuV6JaGs-sUgZ_9I_9mlR36&_nc_ohc=wu3OvMkEEeoQ7kNvgGSWaGf&_nc_oc=AdhfLjnpfzd-fMkD0P_kPyvlEP6RF-hPv6T3kpGO-MYS-nCLOzqugA8w4Vj4cQWbPAw&_nc_zt=23&_nc_ht=scontent.fcgk10-2.fna&_nc_gid=AUJlS0-AIMT8bICumqDXFY_&oh=00_AYDWaLm0vSIUazRHqBQS3_qgJdbLEQoE1lImH3r7suUaCA&oe=679568C9",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t39.30808-6/402972739_2042400152787606_6349908163410674282_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFhQ4PN5Ew2h9Fag8SIiPoMpzzMNsWWL-enPMw2xZYv57vb49p2tsBxVF2987PrflnWLSnlP6o8Ojjf9tpgw3iq&_nc_ohc=ISrY-oIwoAYQ7kNvgHWr2P4&_nc_oc=AdgnAn3fi03pDocN3IfUawbOsPGu2FKNMOOYcgs8cJT5gNdEgeSVfTbN4KphNTWV8Z0&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=A8D0ctAzKayorN7P3k2rIMf&oh=00_AYA3YL4G5K-3cx-jaMy55FgyxmLw2LiucxJaNsPMYvIgoA&oe=67958765",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t39.30808-6/322994869_945136646455234_2241544058765217404_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFfMlcbGv_gSpf6X6CJEqnYfibudo7mA6J-Ju52juYDokp1sVA3SllYxHjkUK90u18Nf2c0cTZCqL3UCOXBLI68&_nc_ohc=AWzOSuACN04Q7kNvgGXC5Y1&_nc_oc=AdgoP00j19ei-0CPom_5MrMYgo_FRuUHufH_w4IchrO_D1kUC_V5Viw38mK1cJQGfzw&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=A4H7GNpy0bmSUDUsWX_8leY&oh=00_AYAXelIDM2pU-g-irUB8SE75H0UCPRMaTla7Lzq7IaUhwg&oe=679565EB",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk10-2.fna.fbcdn.net/v/t39.30808-6/312586843_1780731378954486_5630864086398270427_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEEaA45h7ae8KITjGg9gFMZsg65F7O_H0GyDrkXs78fQRGqyt_v3otOoeNSVOtHTLckpPve2ou0IDQXz2wzn18-&_nc_ohc=P6pcCpOXUxUQ7kNvgE6dLST&_nc_oc=AditAEEFe-c24ayqjhbSH-6Iou_aDvjVUDD-dRGFatdGsIKcq_LVeErSGhOBAZtpiUs&_nc_zt=23&_nc_ht=scontent.fcgk10-2.fna&_nc_gid=ALAnxvWWpUXYLCkyDrjNAuA&oh=00_AYA7Nch0bqLcDl2qEVrrKk3DyJrWAF6XetG4zih4SlXaFg&oe=67957828",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk10-2.fna.fbcdn.net/v/t39.30808-6/310289144_1765676960459928_1371635991806463861_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEpp9dPNdhVTe0Q_rl234QrVpVJo2BdlDVWlUmjYF2UNcxttQ47DC3x3SB9vdjLDrUuWNcuyYt5nYmtC2o0P_mE&_nc_ohc=Nh6P7VgTSwgQ7kNvgG4eTUX&_nc_oc=Adgjd2EnN8jvhP2gyLIG_KugR9viT8SLkWCxtrep3NXKL2nVRrHP5tAYRDnjdZ5bYLU&_nc_zt=23&_nc_ht=scontent.fcgk10-2.fna&_nc_gid=AJChRfzI82Wi_dvVM_q2Tai&oh=00_AYAPTjAohYIO1qlL9Z6a6XlIFX1YavnsHuNZSZAbVdfE3Q&oe=67957ED5",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t39.30808-6/292556882_1702267506800874_4291174862663575326_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHah3KiknG8uPNBPCqRr1MXGUb2jVW9WfcZRvaNVb1Z91b5ugYVgDTMI58pK0yxphKE-AXyLhvBg9pA2rfNmS5m&_nc_ohc=5iQHIP48fzAQ7kNvgHytQov&_nc_oc=Adi5ix8nIdaMHKJO5hXaHq3fjWK9qzcybnVzk-_k3avr_lJWNoHrAr8Le2b2cjxoV2w&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=AkLLM5gHu8lZYutGxN8Qci0&oh=00_AYBOjVFzuIt1nmdZnbYgTs9JTLwSNA8FeuVgSzNnxMPL_w&oe=67958E47",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t39.30808-6/279042320_1652107018483590_950391099440648006_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEJTxmcLRsMi0BB7zYrgcdZb-lMiRFRCCRv6UyJEVEIJGOJMVDuHqNSlCMd9HQDdjA7jF_Wcwl6xwmMU4MUjww2&_nc_ohc=IDJNNAkmG7QQ7kNvgHLquhJ&_nc_oc=AdiZmT7XN-wXkFOfKzzyOPUHS9-i6LOYaUm9vJkQleiMbB-38sC3JDY5RhdtkVF8XjA&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=AXsutxWk3otMsrfcIrma4wP&oh=00_AYBR-UHVmudN_C4wLYtpIODvulKoZAEIp_2yHEQ7lRI1-A&oe=67956292",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t39.30808-6/469310379_2314467208914231_502451520011756873_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEz9MFHOfVuNxjnUpdBcJ_wi50unMOTfq6LnS6cw5N-rrMuPCGWi6LgHNw8-fALW190bjNNZuKU7vU1neTcZzCK&_nc_ohc=g-Vsu_BsxzMQ7kNvgHUDbrJ&_nc_oc=Adj6ViXxqdttPFnB2aLObx_3XRVeJ2JpUvGxTQdi_Va26PRL4lIaYeJFHmMLDy0Kl1M&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=AMr_RLCwDmPQvey9SVky85J&oh=00_AYDR2ro1GERNRsoyAHPS-kZfk6nzsItSAACVvlFFshtpZg&oe=67957F42",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk10-2.fna.fbcdn.net/v/t1.6435-9/191117247_1414622005565427_7980767499575894282_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFSXDivhoM7eRFUcpoxjZIQUsK4Uy0QEq1SwrhTLRASrW_Hl7-ooZJFY7RYgXjvjd-d6hshhs60-r292Yn2p7kP&_nc_ohc=CxOD2vx8KmoQ7kNvgEiNFSi&_nc_oc=Adgq8eYC91b_rtCWS51OuiZFyPfV2PthZYK52T174vZOY6YjyFEYxGQIa__R-gN5iCg&_nc_zt=23&_nc_ht=scontent.fcgk10-2.fna&_nc_gid=A8ORZUjI5tJinOoKS37o7DF&oh=00_AYDkRBgGIkrrWbHiK2F4oZfcMs54P_IVr-h3VAodbgr9Lg&oe=67B72A0C",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk10-2.fna.fbcdn.net/v/t1.6435-9/175675463_1390506224643672_6428493925618419068_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEgAe8tLyeueizNUV8taOeOgDI6HbycIeeAMjodvJwh5-cm9uXXZNbFAk0QnfQpLEekmb_CyA9qaQTjuSxtjoMS&_nc_ohc=GIEL4IbACDEQ7kNvgEC0Nuf&_nc_oc=Adh5AF7ALmsZhIwYmgl7AqOWkXWL62HocpZ6jRWVPog0D5GQY7Q7egjFq33mr9eysZM&_nc_zt=23&_nc_ht=scontent.fcgk10-2.fna&_nc_gid=AA1R6mWU89FhceG3dO6ZARz&oh=00_AYB5CIJAhg4bW24iF86YoWY3LTUpqzCi_t4YgTC1C8xwfg&oe=67B7142E",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk10-2.fna.fbcdn.net/v/t1.6435-9/174876072_1389167288110899_9102400967058546755_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHYzIAp3K_St4es6TzrQjvYDYHRWvPCnP8NgdFa88Kc_-du4XoQb6um3BcjGZAqfhC4TxjqtS5SNcbz16dz2_Zi&_nc_ohc=v5Rv1cUOof0Q7kNvgHAQ3Lh&_nc_oc=AdjFO011bA5GiyngjxSGTjtw7T4UuG-M17LD8WS6ywT3SPSCgGcvvAv5l5CD5rXxj7I&_nc_zt=23&_nc_ht=scontent.fcgk10-2.fna&_nc_gid=AVjZSe0w6sCm3NZ7aOL4Zf3&oh=00_AYAtx0QJ53kaZ9941B2Wy-tQRucx949L691cJDBBnAqu_g&oe=67B71CC6",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t1.6435-9/143630795_1335843350109960_6651474140812092897_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGaxntRqGtB6NZ6oTtODg9GxGXH5czvR5fEZcflzO9Hl3xRr1F94zFn9fBVbLfGciF06QcJNdS9n-svvPtZbjuy&_nc_ohc=SJZ-W_nXIkwQ7kNvgH4K62t&_nc_oc=Adi3yrnu6hzo3I0sVuQCvJkByXcMpAQBP462HQCJZieu1vjMZxHLWkWT_5fGGpGuaZ8&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=Auulf7cDkuTmUE4wfMzIkgW&oh=00_AYB5lYWhTmL0N-0KTTgbqZAms6z3CBIUe9nKKaYzkM10VA&oe=67B712E2",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk10-2.fna.fbcdn.net/v/t1.6435-9/130285613_1301413763552919_4016317936433391285_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEyBd00s1XPu4YJIVDg9f--xonNtfKh_cjGic218qH9yJK1W4LmWt8be3OXzliZNh4yV-L_wZJEmCnnmfaBFfBU&_nc_ohc=_TuCJj37hYMQ7kNvgEVV4SM&_nc_oc=Adj7z5LOaj8Ts1yvakzMgQVo4WKV8OnVb61CrsQuzLP_c2QD4_jVNCzOm9qEEz5ujuE&_nc_zt=23&_nc_ht=scontent.fcgk10-2.fna&_nc_gid=AtQfmxJy5JyJs9cSOdr7fmY&oh=00_AYC2yKeddZOnIOMRdWpZfzXK1THq8Q4XDfGeQwv3qSn71Q&oe=67B72C48",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk10-2.fna.fbcdn.net/v/t1.6435-9/127247269_1293230547704574_1623675899093445849_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEM6gEZj9GEEEtiflGRFZMqU6DhcUzyJi5ToOFxTPImLv_lXg97SshPKLQBT5fe9N3sNM_kYG06EVP5nahO6oL3&_nc_ohc=XbBh35_Q-FMQ7kNvgG8nbWN&_nc_oc=AdgGeYN8DRP5QjWThX0vva4GFV_po-VZlL27o9naVQr5cHNbGNCheoQ8KbHc4wFf3vk&_nc_zt=23&_nc_ht=scontent.fcgk10-2.fna&_nc_gid=AWvTt4ZKYJQD2rpN90R-nbf&oh=00_AYCsG1Ow-KFj3rtwyEWhZIq_labLWN-hY9XF36wzKeGSKw&oe=67B709E7",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t1.6435-9/122018272_1260678984293064_2605727108844314028_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHFQX1rV2vSR9xoWTIRXfIBH4TZaYX7pMEfhNlphfukwRJEyReOqDI46Chcsda5tPb0Iy8xkUuBSEL657hntR1n&_nc_ohc=GCDlnZVXklUQ7kNvgFak7i8&_nc_oc=AdiEuIjFdURRaWl5xCcYiX3QDn1QGocIOODresKlk7sjBN89i15f_7206v8tV2Vh4Bk&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=AYOxU8_Nn197kR_A7xgyxpI&oh=00_AYBI83yG5N2mfjW_6fcZrG4RnkE8gXD6Q1fCb6lOafpkyA&oe=67B6FF1D",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t1.6435-9/100060212_1137486076612356_3177596094695604224_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGIqYktZqmcM1nYjFECNiWDEDg30oYGfXkQODfShgZ9eef-jU8Y8c1xQ5esGBD4TEinfy2oVf9DPV7eB9gCmT5C&_nc_ohc=Ursxsd2WX28Q7kNvgG7ixlt&_nc_oc=AdhdNT_FcKdr6AQ811n7L649_b4EYfsaBwch8PxMamN-7rxB6d7ZCizML8gFRkcOdYk&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=AFfQwlQ97qKsMMASKK_FAPI&oh=00_AYDvOG7yNB3Q3rD7ik4NLrGB7Cv2WEgHW185sTnVOZ39cg&oe=67B72453",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t1.6435-9/70971435_935945116766454_3935101804563398656_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGYlk91sCJ6pgp49135GHGuW6fvAlsh-u5bp-8CWyH67s4JKGD0jQdwq7bsboXSK9bkO3DgnP2kQybrorPvEJgV&_nc_ohc=ZWhMd3zvTKIQ7kNvgGLTUJ9&_nc_oc=AdgTsIgMIdcWOXyh2DpO27MullVCmg1u82sqv0wElD9ThYg_QmiguVez13Yrw91PNRw&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=AsjAVt3yBHJ6_EIpeCMf_B8&oh=00_AYDFnpNtC3DFgyvMAHTaI19-QXQ2P_S6uH_NZ9Nq0nijGw&oe=67B71EDE",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t1.6435-9/69991663_920878748273091_4562697647219015680_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFle3Gc3LG3YqbE10Hwxi5s9fOa-Mht4Vb185r4yG3hVsoBTERRIB7mYziaYEzhhnIFXtYihgkTJUTfsn_X0Zij&_nc_ohc=lVWOmkXW57kQ7kNvgHcBRRq&_nc_oc=Adg9PETmBZNPuo7v_SaT1VcK-IQyduWzJsWLVaftesLDnaU8VkZxcZD2CY90LmTR9wo&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=Ar9MWJD2DKyy5mx5skQ1PWI&oh=00_AYAskhWP6vASxlCc2W3YLzOb7eFYCz0of2sWDms4NjCYYg&oe=67B71891",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t1.6435-9/66751649_885112895183010_8027960648421867520_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeF5CNtFLqSQHHe9nuYNGFwSRhnALPJzwqpGGcAs8nPCqvs2kAWqZXV2T_a4bvKMGlGPkWxgHUDV38-BKrs07ySZ&_nc_ohc=t0I23rI_ycQQ7kNvgHaubdS&_nc_oc=AdiQADG7kvVv-_UyfGv1gT0eX76EgvqP3HyNZbr7oS0nHWcbqd2PAiXuYRZjr6CV0L8&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=AEibCqWmk9cnmIS2BLhbFTl&oh=00_AYC4iPZSnGWEoZoq4FlZNx0dJTzgPs6DB8RWyjGSXGYNug&oe=67B721D9",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk10-2.fna.fbcdn.net/v/t1.6435-9/41762046_705523829808585_170966494681759744_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGttk6SRZLDR64rJlSiZkL5QNdXV_iDFIlA11dX-IMUiVHfZ-1tEOIMJtfQeP0vQ7OtMNQs11RjTOdtdI2gvTwg&_nc_ohc=NyZqR2DBZxwQ7kNvgHcAdAa&_nc_oc=AdjjgS-ozstqJPveblKgp76ZhbKPceeEcKhJAfc9Ua_1GmJeA8m-Aq_f6aSjr3l3kXM&_nc_zt=23&_nc_ht=scontent.fcgk10-2.fna&_nc_gid=AFaI61yByVVcgUXnOd_5gDf&oh=00_AYDgodp5E55mzmEoOvGqudRlIPLfnqDhiIr_4rz111doig&oe=67B7186F",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk10-2.fna.fbcdn.net/v/t1.6435-9/198832300_1425540604473567_908077315214399438_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFm0aPO8Aw9YTAVrGyL5VdONtHNAwRe7m420c0DBF7ubrTHCBLHmYf42AsE0W9V0JTbVgkqamKJoTygs2yAfPjb&_nc_ohc=J3Qhm8LphnoQ7kNvgFqwJb0&_nc_oc=Adh3tJZmZILLAfqpW6y2vIh8RbkhxaCXWSb5C6xaxygvNrXj8NVawfkTqprvJPJZaCc&_nc_zt=23&_nc_ht=scontent.fcgk10-2.fna&_nc_gid=AyFNPKRIyRjS44wQHSD3Pth&oh=00_AYDFvUdcRerFQedmfdfgE2IeHzUfiJlur-oe4fSK8WLZUw&oe=67B718E3",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t1.6435-9/194117934_1425062654521362_7664104839122003082_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFBe7VMBxxg2vd-M8KgTThpwubtNa_Sa0bC5u01r9JrRtkuA4k_bR_jpmjFNy5-2a-lhhXq8tM3JS7IbHE4vCGB&_nc_ohc=0FTr6PDHKkoQ7kNvgH_y78_&_nc_oc=AdgAMMzmdd53cYAj4fWSwKVqCD-jbSAK-6y_dkPWjg8hMzhZF8K7glzXHxE3IZL3VuI&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=A5bXvcIzYsNuLYeeS1ShDcU&oh=00_AYB8Ps6_lz6rk8jGc3OJe4kIDpRDtuZyt6fk5CVa7xWNLg&oe=67B72B6C",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t1.6435-9/117392311_1201742950186668_288638463441543042_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHrxQhc4SklQDrdTPQnkn1IVqM-9-SM2xxWoz735IzbHF08FpTcD_Xv-Mnyzli7IyDxcwCJLh9XRZOgp-AVHK7L&_nc_ohc=7EBcdaN_ZR8Q7kNvgGyTwHu&_nc_oc=AdjuOMdtt5FqtFBZJgJ-OzOmye0rxFQozav_SzBIUsA8UlGYI8UYuwjXBwttfT6hp4Q&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=AF9D0IhL2Ys6hDFUhacADCG&oh=00_AYAafeAWCagCy3ZruM0bliAaKhVPLERDR-MV5e9o6asYqQ&oe=67B710C4",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk10-2.fna.fbcdn.net/v/t1.6435-9/117342681_1198147317212898_2558656058632532857_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGdOz-rO2NLdaIRVVRmBquDImz37cpBQqIibPftykFCojxfmpQoO0CD0hgw1eXUeaKH4CCMMbyWswuRvdkgQRan&_nc_ohc=f8XbwZpQ068Q7kNvgFiJboQ&_nc_oc=AdjAENxCVu8HwAyRWYnoEt_-BYfGmGKfFmNCgfg0UDl_pQTzZ7Q6j8ZYwT3G0ydBBF0&_nc_zt=23&_nc_ht=scontent.fcgk10-2.fna&_nc_gid=Aka0sAPzoqSqUyHONwYi7Zp&oh=00_AYDFBmn3R8WMfFcJObykYf6xoFqqheyQATQPLo7Xqdhmkw&oe=67B73568",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t1.6435-9/104108064_1156422511385379_5816227589702680450_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGJKQBw4OYbYe9xcRNXc7QLjyY3BV5n0iuPJjcFXmfSK4svMKWI0UArPTAXisakCiVhsEfmmR7LOVUBjMVzgjgX&_nc_ohc=oR0V9L9w0lMQ7kNvgHIHIgB&_nc_oc=Adgo7zFC-r2Wa9pTFgb-fjKQXo4uFS_tkjMvsPKY26BFpZjevRwENeXDZ8NeJJKGawE&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=AYHPIMJKOGsex3j8N2IJrvT&oh=00_AYDKN3GOnX6fjqH_8SKdCNamF6YDB_LWoQnyhGeDUyW_sw&oe=67B71699",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t1.6435-9/101100487_1144860995874864_230080487513653248_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHo52vxNY-tru2axgTibImGUow46NkeXMRSjDjo2R5cxKka8mYjIkSNVHamREX2HByzuSDrAS38V1F-jdnd2wqD&_nc_ohc=yYu4tEY1I4AQ7kNvgH4fb4R&_nc_oc=Adgx5wb_YdDTLkSRk614CHgDsWAZEM1oIhIh3R_cqzYR8nXQAGkZr05_ew-BsqxpuTc&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=Ag26Xd_Sff07YKZj8ZhBj_2&oh=00_AYAghK-vb9AwXopNjEadRIYTI5i-g-NJRMbBIuoxPmlE9Q&oe=67B723A5",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk10-2.fna.fbcdn.net/v/t1.6435-9/93409439_1108848282809469_2213894455260348416_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEat8TEjuW8DaLvjtbMwzvNb3UDAhQlBd1vdQMCFCUF3UVpjwWwJFjfC_9e3lrOlj4V-KNowhxLZDJwVYRGjCjw&_nc_ohc=tiAauZp2fm8Q7kNvgEXEKWD&_nc_oc=Adhilu3EOBg3Pdk-kiykQJhzFQzTPbSrRv1qaveG_EbDQF0eH3zjVgNyROMA-fKnbAg&_nc_zt=23&_nc_ht=scontent.fcgk10-2.fna&_nc_gid=AF6zE1q7Cv50Cu_b94aybZC&oh=00_AYBRciRUI0lxppuvr_SExzuCUl4bKeA3DLdVIb7gdmruBA&oe=67B70986",
+    "category": "manipulation"
+  },
+  {
+    "image": "https://scontent.fcgk15-1.fna.fbcdn.net/v/t1.6435-9/81557787_1023529531341345_8289292928593952768_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGvN-U2Suq2qeXi3qIbkvriZpSSPlJvrptmlJI-Um-um_Wb5I_S_rwX5HQdj4j1I6O0d41oECJstiwoHJ8zNByK&_nc_ohc=8IGh3niyPHkQ7kNvgGg9fNH&_nc_oc=AdjwpsancFAKoSBUo_yXYPc-k9DlGezIVtejnN49z6lLy3bSOpNoY-XVulCWGkm7StQ&_nc_zt=23&_nc_ht=scontent.fcgk15-1.fna&_nc_gid=AYmPa8163irHkEAmkFWI98P&oh=00_AYBEvVETP8WqTTpx5vFzKnoHJzGOgG5k375n7Ny5Ow0nug&oe=67B733C1",
+    "category": "manipulation"
+  }
+]

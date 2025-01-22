@@ -1,0 +1,796 @@
+/* Previous styles remain the same until FAQ section */
+@import url("https://fonts.googleapis.com/css2?family=Jersey+15&display=swap");
+
+:root {
+  --dark-bg: #1a1a1a;
+  --card-bg: #2a2a2a;
+  --black: #000000;
+  --white: #ffffff;
+  --pink: #ff90e8;
+  --yellow: #ffd33c;
+  --mint: #36dca5;
+  --cornflower-blue: #6495ed;
+}
+
+.bg-mint {
+  background-color: var(--mint);
+}
+
+.text-mint {
+  color: var(--mint);
+}
+
+.bg-blue {
+  background-color: var(--cornflower-blue);
+}
+
+.text-blue {
+  color: var(--cornflower-blue);
+}
+
+.bg-yellow {
+  background-color: var(--yellow);
+}
+
+.text-yellow {
+  color: var(--yellow);
+}
+
+.bg-pink {
+  background-color: var(--pink);
+}
+
+.text-pink {
+  color: var(--pink);
+}
+
+.bg-card {
+  background-color: var(--card-bg);
+}
+
+.text-card {
+  color: var(--white);
+}
+
+.bg-dark {
+  background-color: var(--dark-bg);
+}
+
+.text-dark {
+  color: var(--white);
+}
+
+/* Previous general styles remain the same */
+body {
+  background-color: var(--dark-bg);
+
+  color: white;
+  -webkit-user-select: text; /* Chrome, Safari, Opera */
+  -moz-user-select: text; /* Firefox */
+  -ms-user-select: text; /* Internet Explorer */
+  user-select: text; /* Standar untuk browser modern */
+}
+
+.main-content {
+  background-image: url("../image/rand_bg.svg"); /* Ganti dengan path file SVG Anda */
+  background-size: cover; /* Menyesuaikan ukuran gambar dengan ukuran layar */
+  background-position: center; /* Menjaga gambar tetap terpusat */
+  background-attachment: fixed; /* Membuat latar belakang tetap saat di-scroll */
+}
+/* Logo */
+/* Container untuk logo dan teks */
+.logo-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Style logo */
+.logo {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Animasi hover pada logo */
+.logo:hover {
+  transform: scale(1.1); /* Membesarkan sedikit */
+}
+
+/* Style untuk teks "Lukman Muludin" */
+.username {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  font-size: 1rem;
+  color: var(--pink);
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+/* Tampilkan teks saat hover pada logo-container */
+.logo-container:hover .username {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Tambahkan interaksi klik */
+.logo-container.clicked .username {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Features */
+.features .neo-card {
+  transition: background 0.3s ease-in-out; /* Transisi lembut untuk perubahan background */
+}
+
+.features .neo-card:hover {
+  background: radial-gradient(
+    at top left,
+    rgba(34, 49, 41, 0.9),
+    rgba(22, 36, 28, 0.8),
+    rgba(16, 24, 18, 0.7)
+  );
+}
+
+@media (max-width: 560px) {
+  .features h5,
+  .features i {
+    font-size: 0.9rem;
+  }
+
+  .work-experience .neo-card {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animasi untuk slime-circle */
+@keyframes slimeFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slimeFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+/* Efek untuk drop (tetesan angka) */
+.drop {
+  position: absolute;
+  font-size: 20px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.drop.fade-out {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.slime-circle {
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  background-color: #00ff00;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  mix-blend-mode: difference;
+  transition: all 0.1s ease; /* Buat transisi lebih halus */
+  transform-origin: center;
+  z-index: 99;
+  display: none; /* Awalnya disembunyikan */
+  pointer-events: none; /* Tidak mengganggu interaksi dengan elemen lain */
+  transition: transform 0.1s ease-out, opacity 0.5s ease-out; /* Transisi halus untuk transformasi dan opacity */
+}
+
+.drop {
+  position: absolute;
+  font-size: 20px; /* Ukuran font untuk angka */
+  color: #00ff00; /* Warna angka */
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 100;
+  text-align: center; /* Agar angka berada di tengah */
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.3;
+    text-shadow: 0 0 4px #00ff00, 0 0 8px #00ff00, 0 0 12px #00ff00;
+  }
+  to {
+    opacity: 0.7;
+    text-shadow: 0 0 8px #00ff00, 0 0 16px #00ff00, 0 0 24px #00ff00;
+  }
+}
+
+::selection {
+  color: #fff200; /* Teks warna gelap */
+  text-shadow: 0 0 5px rgba(255, 255, 0, 0.5), 0 0 10px rgba(255, 255, 0, 0.3),
+    0 0 15px rgba(255, 255, 0, 0.2);
+}
+
+.select {
+  color: #00ff00; /* Teks warna gelap */
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.6), 0 0 10px rgba(0, 255, 0, 0.4),
+    0 0 15px rgba(0, 255, 0, 0.2);
+}
+
+.select-link {
+  color: var(--yellow);
+}
+
+.hero {
+  background-image: url("../image/hero.png");
+  background-size: 40%; /* Menyesuaikan ukuran gambar berdasarkan rasio aspek aslinya */
+  background-position: center;
+  height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.russo {
+  font-family: "Russo One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto Mono", serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Normal weight */
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto Mono", serif;
+  font-optical-sizing: auto;
+  font-weight: 600; /* Normal weight */
+  font-style: normal;
+}
+
+.neo-button {
+  background-color: var(--mint);
+  color: black;
+  border: 3px solid black;
+  padding: 8px 24px;
+  font-weight: bold;
+  box-shadow: 4px 4px 0 black;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.neo-icon {
+  color: black;
+  border: 3px solid black;
+  padding: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+}
+
+.neo-button:hover {
+  color: black;
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Previous card styles remain the same */
+.neo-card {
+  background-color: var(--card-bg);
+  border: 3px solid black;
+  box-shadow: 4px 4px 0 black;
+  padding: 20px;
+  height: 100%;
+}
+
+.neo-card:hover {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+
+/* Previous section styles remain the same */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.feature-title {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* NAVBAR */
+
+.neo-navbar {
+  background-color: var(--dark-bg);
+  border-bottom: 3px solid black;
+  box-shadow: 0 4px 0 black;
+  padding: 5px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.neo-navbar .nav-link {
+  color: white;
+  font-weight: 500;
+  margin: 0 8px;
+  padding: 8px 16px;
+  border: 3px solid transparent;
+}
+
+.neo-navbar .nav-link:hover {
+  color: black;
+  border: 3px solid black;
+  background-color: var(--yellow);
+  box-shadow: 4px 4px 0 black;
+}
+
+.neo-navbar .nav-link.active {
+  color: black;
+  border: 3px solid black;
+  background-color: var(--mint);
+  box-shadow: 4px 4px 0 black;
+}
+
+.neo-navbar .navbar-toggler {
+  border: 3px solid black;
+  background-color: var(--pink);
+  padding: 4px 8px;
+  box-shadow: 4px 4px 0 black;
+  transition: all 0.2s;
+}
+
+.neo-navbar .navbar-toggler:hover {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.neo-navbar .navbar-toggler-icon {
+  background-image: url("data:../image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+@media (max-width: 991.98px) {
+  .neo-navbar .navbar-collapse {
+    background-color: var(--dark-bg);
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+
+  .neo-navbar .nav-link {
+    margin: 8px 0;
+  }
+
+  .navbar-collapse .nav-link:hover {
+    color: black;
+    border: 3px solid black;
+    background-color: var(--yellow);
+    box-shadow: 4px 4px 0 black;
+  }
+}
+
+/* PORTOFOLIO */
+/* PORTOFOLIO */
+/* PORTOFOLIO */
+/* PORTOFOLIO */
+/* PORTOFOLIO */
+/* PORTOFOLIO */
+/* PORTOFOLIO */
+
+.portfolio-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1000;
+}
+
+.portfolio-section {
+  padding: 80px 0;
+  border-radius: 20px; /* Membulatkan sudut */
+  position: relative; /* Agar efek backdrop-filter bekerja */
+  overflow: hidden; /* Agar border radius berfungsi dengan baik */
+}
+
+/* Menambahkan efek blur di belakang elemen */
+.portfolio-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit; /* Mengambil warna latar belakang dari elemen */
+  backdrop-filter: blur(20px); /* Efek blur latar belakang */
+  z-index: -1; /* Menempatkan efek blur di belakang konten */
+  border-radius: 50px; /* Menjaga border radius pada elemen latar belakang */
+}
+
+.filter-button {
+  background-color: var(--dark-bg);
+  color: white;
+  border: 3px solid black;
+  padding: 4px 14px;
+  margin: 0 0 10px;
+  font-weight: bold;
+  box-shadow: 4px 4px 0 black;
+  transition: all 0.2s;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  animation: changeColor 30s infinite;
+  color: black;
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+@keyframes changeColor {
+  0% {
+    background-color: var(--mint);
+  }
+  35% {
+    background-color: var(--pink);
+  }
+  75% {
+    background-color: var(--yellow);
+  }
+  100% {
+    background-color: var(--cornflower-blue);
+  }
+}
+
+.portfolio-grid {
+  margin: 30px 0 0;
+  position: relative;
+  min-height: 200px;
+}
+
+.portfolio-card {
+  position: relative;
+  background-color: var(--card-bg);
+  border: 3px solid black;
+  box-shadow: 4px 4px 0 black;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.portfolio-card:hover {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-title {
+  color: var(--mint);
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.portfolio-category {
+  color: white;
+  font-size: 0.875rem;
+}
+
+/* TECH STACK */
+/* TECH STACK */
+/* TECH STACK */
+/* TECH STACK */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px 10px;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.2s ease;
+}
+
+.tech-item:hover {
+  transform: translateY(-2px);
+}
+
+.tech-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.tech-name {
+  color: white;
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .tech-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .tech-name {
+    font-size: 13px;
+  }
+}
+
+/* Fancybox */
+.fancybox-button--rotate svg {
+  transform: scale(0.8);
+}
+
+.portfolio-card {
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.fancybox-caption {
+  text-align: center;
+  font-size: 16px;
+  padding: 12px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Sertifikat */
+.seminar-certificates .neo-card {
+  background-color: var(--card-bg);
+  transition: transform 0.2s ease;
+}
+
+.seminar-certificates .cert-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.seminar-certificates .cert-item:last-child {
+  border-bottom: none;
+}
+
+.seminar-certificates .view-cert {
+  color: var(--neon-green);
+  text-decoration: none;
+  font-family: "Roboto Mono", serif;
+  font-weight: 600;
+  padding: 6px 12px;
+  border: 2px solid var(--dark-bg);
+  transition: all 0.2s ease;
+}
+
+.seminar-certificates .view-cert:hover {
+  background-color: var(--yellow);
+  color: var(--dark-bg);
+}
+
+@media (max-width: 768px) {
+  .seminar-certificates h5 {
+    font-size: 1rem;
+  }
+
+  .seminar-certificates .text-muted {
+    font-size: 0.9rem;
+  }
+}
+
+/* LOADING */
+.project-image {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.tools-badge {
+  background: rgba(0, 255, 98, 0.1);
+  border: 1px solid var(--mint);
+  color: var(--mint);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* FOX */
+.fox {
+  position: fixed;
+  bottom: 15px;
+  width: 55px;
+  height: 55px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 9999;
+  image-rendering: pixelated;
+  cursor: pointer;
+}
+
+.fox-sprite {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+  transform: translateY(-30px);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  left: 50%;
+  transform: translate(-50%, -70px); /* Center the tooltip */
+}
+
+.fox:hover .tooltip {
+  opacity: 1;
+}
+
+/* Splash Screen */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: opacity 0.5s ease-out;
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-text {
+  color: white;
+  font-family: "Jersey 15", serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.dots {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.dots span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: white;
+  margin: 0 2px;
+  opacity: 0;
+  animation: dot-fade 1.5s infinite;
+}
+
+.dots span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.dots span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes dot-fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.foxes-container {
+  position: relative;
+  width: 200px;
+  height: 60px;
+  overflow: hidden;
+}
+
+.running-fox {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
+  animation: runAcross 3s linear;
+  opacity: 0;
+}
+
+.red-fox {
+  top: 0;
+  animation-delay: 0.2s;
+}
+
+.white-fox {
+  top: 0;
+  animation-delay: 0.5s;
+}
+
+@keyframes runAcross {
+  0% {
+    left: -60px;
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 200px;
+    opacity: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}

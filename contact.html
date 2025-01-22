@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chopin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script
+      src="https://kit.fontawesome.com/f59e2d85df.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Include Isotope library -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <!-- First, add these in your <head> section -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    />
+    <!-- Add Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css"
+    />
+    <link rel="icon" href="assets/image/logo2.png" type="image/png" />
+
+    <style>
+      body {
+        background-image: url(assets/image/hero.png);
+        background-size: 40%;
+        background-position: center;
+      }
+
+      .contact-header {
+        margin-bottom: 4rem;
+      }
+
+      .title {
+        font-size: 4em;
+        font-family: "Russo One", serif;
+        margin: 10px 0;
+        line-height: 1.2;
+      }
+
+      .contact-card {
+        border: 3px solid var(--black);
+        box-shadow: 8px 8px 0 var(--black);
+        background: #1a1a1a;
+        color: var(--white);
+        text-decoration: none;
+        padding: 1.5rem;
+        transition: all 0.2s ease;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        cursor: pointer;
+      }
+
+      .contact-card:hover {
+        transform: translate(4px, 4px);
+        box-shadow: 4px 4px 0 var(--black);
+        animation: changeColor 10s infinite;
+      }
+
+      @keyframes changeColor {
+        0% {
+          color: var(--pink);
+        }
+        50% {
+          color: var(--yellow);
+        }
+        100% {
+          color: var(--mint);
+        }
+      }
+
+      .icon-wrapper {
+        width: 60px;
+        height: 60px;
+        background: var(--mint);
+        border: 3px solid var(--black);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .icon-wrapper img {
+        width: 35px;
+        height: 35px;
+      }
+
+      .contact-info h3 {
+        margin: 0;
+        font-size: 1.5em;
+        font-family: "Russo One", serif;
+      }
+
+      .contact-info p {
+        margin: 5px 0 0;
+        font-size: 1em;
+      }
+
+      .contact-badge {
+        display: inline-block;
+        background: var(--yellow);
+        border: 3px solid var(--black);
+        color: var(--black);
+        padding: 8px 16px;
+        font-weight: bold;
+        box-shadow: 4px 4px 0 var(--black);
+        margin-top: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .title {
+          font-size: 3em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slime-circle"></div>
+    <div class="drop"></div>
+    <div id="red-fox" class="fox">
+      <div class="fox-sprite"></div>
+      <div class="tooltip">Red Fox (Kuro)</div>
+    </div>
+    <div id="white-fox" class="fox">
+      <div class="fox-sprite"></div>
+      <div class="tooltip">White Fox (Shiro)</div>
+    </div>
+    <nav class="neo-navbar navbar navbar-expand-lg">
+      <div class="container">
+        <div class="logo-container">
+          <img
+            src="assets/image/logo2.png"
+            class="logo my-2"
+            style="border-radius: 8px"
+            width="40"
+            alt="Logo"
+          />
+          <span class="username roboto-bold">Lukman Muludin</span>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#neoNavbar"
+          aria-controls="neoNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="fa-solid fa-burger"></span>
+        </button>
+        <div class="collapse navbar-collapse roboto-light" id="neoNavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#work">
+                <i class="fa-solid fa-briefcase"></i> My Work
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#achievements">
+                <i class="fa-solid fa-trophy"></i> Achievements
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#experience">
+                <i class="fa-solid fa-chart-line"></i> Experience
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#education">
+                <i class="fa-solid fa-graduation-cap"></i> Education
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#certificates">
+                <i class="fa-solid fa-certificate"></i> Certificates
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">
+                <i class="fa-solid fa-envelope"></i> Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-5">
+      <div class="contact-header">
+        <div class="row">
+          <div
+            class="col-md-6 d-flex justify-content-center align-items-center order-lg-2"
+          >
+            <img
+              src="assets/image/logo2.png"
+              class="contact-logo mb-3 rounded-circle"
+              style="width: 250px"
+              alt="Contact Illustration"
+            />
+          </div>
+          <div class="col-md-6 order-lg-1">
+            <div class="contact-badge">Let's Connect!</div>
+            <h1 class="title text-white">GET IN TOUCH<br />WITH ME.</h1>
+            <p class="text-white">
+              Feel free to reach out through any of these platforms
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <a href="mailto:lukmanmauludin831@gmail.com" class="contact-card">
+            <div class="icon-wrapper" style="background: var(--pink)">
+              <img
+                src="https://img.icons8.com/?size=100&id=Y2GfpkgYNp42&format=png&color=000000"
+                alt="Gmail"
+              />
+            </div>
+            <div class="contact-info">
+              <h3>Email</h3>
+              <p>lukmanmauludin831@gmail.com</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <a href="https://www.github.com/Lukman754" class="contact-card">
+            <div class="icon-wrapper" style="background: var(--mint)">
+              <img
+                src="https://img.icons8.com/material-rounded/96/000000/github.png"
+                alt="GitHub"
+              />
+            </div>
+            <div class="contact-info">
+              <h3>GitHub</h3>
+              <p>Lukman754</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <a href="https://www.instagram.com/_.chopin" class="contact-card">
+            <div
+              class="icon-wrapper"
+              style="background: var(--cornflower-blue)"
+            >
+              <img
+                src="https://img.icons8.com/?size=100&id=RhYNENh5cxlS&format=png&color=000000"
+                alt="Instagram"
+              />
+            </div>
+            <div class="contact-info">
+              <h3>Instagram</h3>
+              <p>@_.chopin</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <a
+            href="https://www.facebook.com/lukman.mauludin.754"
+            class="contact-card"
+          >
+            <div class="icon-wrapper" style="background: var(--yellow)">
+              <img
+                src="https://img.icons8.com/?size=100&id=8818&format=png&color=000000"
+                alt="Facebook"
+              />
+            </div>
+            <div class="contact-info">
+              <h3>Facebook</h3>
+              <p>Lukman Muludin</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <footer class="text-white py-3">
+      <div class="container">
+        <!-- Ikon Sosial Media -->
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <a
+              href="https://github.com/Lukman754"
+              target="_blank"
+              class="text-white fs-3 mx-3"
+            >
+              <i class="fab fa-github small"></i>
+            </a>
+          </div>
+          <div class="col-auto">
+            <a
+              href="https://facebook.com/lukman.mauludin.754"
+              target="_blank"
+              class="text-white fs-3 mx-3"
+            >
+              <i class="fab fa-facebook small"></i>
+            </a>
+          </div>
+          <div class="col-auto">
+            <a
+              href="https://instagram.com/_.chopin"
+              target="_blank"
+              class="text-white fs-3 mx-3"
+            >
+              <i class="fab fa-instagram small"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="text-center mt-3">
+          <p class="small roboto-bold">
+            &copy; 2025 by Lukman Muludin. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/fox.js"></script>
+  </body>
+</html>
