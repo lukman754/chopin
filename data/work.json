@@ -27,7 +27,7 @@
     "title": "Recognition Extractor & Folder Organizer Documentation",
     "category": "project",
     "image": "https://github.com/user-attachments/assets/25c91d4a-065d-4fa0-aa59-177910caaafc",
-    "github_link" : "https://github.com/lukman754/rekognisi"
+    "github_link" : "https://github.com/lukman754/rekognisi",
     "overview": "This program accelerates the data migration process from one website to another in just 1-2 minutes. It automates data extraction from Sispema, organizes files using Folder Organizer, and enables automatic data input into Simkatmawa.",
     "features": [
       "Automated data extraction from Sispema.",
