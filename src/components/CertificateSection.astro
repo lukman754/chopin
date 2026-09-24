@@ -1,0 +1,106 @@
+---
+const certificates = [
+  {
+    image: "/assets/certificates/sertif1.jpg",
+    type: "CERTIFICATE / WEB SYSTEM",
+    title: "FULL STACK WEB DEVELOPMENT",
+    issuer: "DIGITAL LEARNING ARCHIVE",
+    date: "2026 / 01",
+  },
+  {
+    image: "/assets/certificates/sertif2.jpg",
+    type: "ACHIEVEMENT / AUTOMATION",
+    title: "BROWSER AUTOMATION SYSTEM",
+    issuer: "FIELD OPERATIONS UNIT",
+    date: "2025 / 11",
+  },
+  {
+    image: "/assets/certificates/sertif3.jpg",
+    type: "CERTIFICATE / DATA",
+    title: "DATABASE & INFORMATION SYSTEMS",
+    issuer: "ACADEMIC SYSTEMS LAB",
+    date: "2025 / 08",
+  },
+  {
+    image: "/assets/certificates/sertif4.jpg",
+    type: "ACHIEVEMENT / DESIGN POSTER",
+    title: "NATIONAL POSTER COMPETITION",
+    issuer: "UNIVERSITAS NEGERI YOGYAKARTA",
+    date: "2023 / 04",
+  },
+];
+---
+
+<section class="section certificates" id="certificates">
+  <div class="certificate-marquee" data-certificate-marquee aria-hidden="true">CHOPIN &nbsp CHOPIN &nbsp CHOPIN &nbsp CHOPIN</div>
+  <div class="container">
+    <div class="section-head certificate-head">
+      <div>
+        <div class="section-kicker">05 / VERIFIED RECORDS</div>
+        <h2 class="section-title"><span>CREDENTIALS.</span></h2>
+      </div>
+      <p class="section-copy">Sertifikat, penghargaan, dan bukti perjalanan belajar yang membentuk sistem kerja gue.</p>
+    </div>
+
+    <div class="certificate-carousel" data-certificate-carousel>
+      <div class="certificate-index"><span data-certificate-current>01</span> / 0{certificates.length}</div>
+      <div class="certificate-stage">
+        <div class="certificate-media-window">
+          <div class="certificate-track" data-certificate-track>
+            {certificates.map((certificate, index) => (
+              <article class:list={['certificate-slide', index === 0 && 'is-active']} data-certificate-slide data-index={index} data-type={certificate.type} data-title={certificate.title} data-issuer={certificate.issuer} data-date={certificate.date}>
+                <div class="certificate-image-wrap">
+                  <img src={certificate.image} alt={`Certificate: ${certificate.title}`} loading="lazy" />
+                  <div class="cert-swipe-black" aria-hidden="true"></div>
+                  <div class="cert-swipe-invert" aria-hidden="true"></div>
+                  <div class="certificate-image-fallback"><span>CHOPIN<br />CREDENTIAL<br />{String(index + 1).padStart(2, "0")}</span></div>
+                  <span class="certificate-image-mark">VERIFIED / {String(index + 1).padStart(2, "0")}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div class="certificate-info" data-certificate-info>
+          <div class="cert-tech-header">
+            <span class="cert-tech-tag">▼ // CHOPIN: ENDFIELD</span>
+            <div class="cert-tech-arrow-box" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter">
+                <line x1="7" y1="7" x2="17" y2="17"></line>
+                <polyline points="17 7 17 17 7 17"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="certificate-meta"><span data-certificate-field="type">{certificates[0].type}</span><span data-certificate-field="date">{certificates[0].date}</span></div>
+          <h3 data-certificate-field="title">{certificates[0].title}</h3>
+          <div class="cert-tech-mid">
+            <div class="cert-plus-box">+</div>
+            <div class="cert-tech-subtitle">** MISSION-DEPENDENT PAYLOAD<br />SYSTEM INTERFACES</div>
+          </div>
+          <p data-certificate-field="issuer">{certificates[0].issuer}</p>
+
+          <div class="cert-tech-shapes">
+            <div class="cert-dot-grid" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="cert-color-bar" aria-hidden="true">
+              <div class="color-stack">
+                <span class="bar-magenta"></span>
+                <span class="bar-cyan"></span>
+                <span class="bar-fade"></span>
+              </div>
+              <div class="bar-gray-block"></div>
+            </div>
+          </div>
+
+          <div class="certificate-signal"><span></span><span></span><span></span><b>AUTHENTICATED</b></div>
+        </div>
+      </div>
+      <div class="certificate-controls nav-asset">
+        <div class="nav-asset__track" aria-hidden="true"></div>
+        <button type="button" class="certificate-control nav-btn nav-btn--prev" data-certificate-prev aria-label="Previous certificate"><span class="nav-arrow" aria-hidden="true"></span></button>
+        <button type="button" class="certificate-control nav-btn nav-btn--next" data-certificate-next aria-label="Next certificate"><span class="nav-arrow" aria-hidden="true"></span></button>
+      </div>
+    </div>
+  </div>
+</section>

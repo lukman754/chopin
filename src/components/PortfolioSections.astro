@@ -1,0 +1,54 @@
+---
+import ThreeMascot from "./ThreeMascot.astro";
+import BodyRail from "./BodyRail.astro";
+import TechRail from "./TechRail.astro";
+import IntroSection from "./IntroSection.astro";
+import CertificateSection from "./CertificateSection.astro";
+---
+
+<main>
+  <IntroSection />
+  <section class="hero" id="home">
+    <ThreeMascot />
+    <div class="container hero-inner">
+      <div class="hero-top">
+        <div>
+          <div class="tech-label">INFORMATION SYSTEMS / 2026</div>
+          <div style="height:28px"></div>
+          <div class="number-marker"><strong>01</strong><span>INTRODUCTION</span></div>
+          <h1 class="hero-intro-title">I BUILD DIGITAL SYSTEMS THAT <span>SOLVE REAL PROBLEMS.</span></h1>
+          <div class="chopin-signature"></div>
+          <div class="hero-actions">
+            <span class="yellow-tag">DEVELOPER / PROBLEM SOLVER</span>
+            <span class="skill-pill">WEB DEVELOPMENT</span>
+            <span class="skill-pill">AUTOMATION</span>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="crosshair"><div class="crosshair-dot"></div></div>
+          <div class="coordinates"><strong>CHOPIN.EXE</strong>SYSTEM STATUS: ONLINE<span>BUILD_2026.09</span></div>
+          <div class="hazard-yellow"></div>
+          <div class="status">AVAILABLE FOR OPPORTUNITIES</div>
+        </div>
+      </div>
+     
+      <div class="tech-divider"><span></span></div>
+      <div class="hero-mode">
+        <div><div class="section-kicker">CURRENT MODE</div></div>
+        <div class="coordinates"><strong>LOCATION: INDONESIA</strong>FIELD: INFORMATION SYSTEMS<span>MODE: BUILDING</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about-section" id="about"><BodyRail /><div class="container"><div class="section-head"><div><div class="section-kicker">02 / IDENTITY FILE</div><h2 class="section-title">ABOUT<br /><span>ME.</span></h2></div><p class="section-copy">Mahasiswa Sistem Informasi yang suka membangun website, sistem informasi, automation, dan tools kecil yang bikin pekerjaan lebih cepat.</p></div><div class="about-grid"><div><p class="about-copy">Gue <strong>Lukman Muludin</strong>, dikenal juga sebagai Chopin. Fokus gue ada di pengembangan web, sistem informasi, database, automation, dan eksplorasi teknologi untuk menyelesaikan masalah nyata.</p><div class="tech-divider"><span></span></div><div class="skill-list"><span class="skill-pill">PHP</span><span class="skill-pill">JavaScript</span><span class="skill-pill">Python</span><span class="skill-pill">SQL</span><span class="skill-pill">HTML/CSS</span></div></div><div class="about-meta"><div class="meta-row"><span>NAME</span><span>LUKMAN MULUDIN</span></div><div class="meta-row"><span>ALIAS</span><span>CHOPIN</span></div><div class="meta-row"><span>FIELD</span><span>INFORMATION SYSTEMS</span></div><div class="meta-row"><span>FOCUS</span><span>WEB / AUTOMATION / DATA</span></div></div></div><div class="about-assets"><div class="mini-asset"><span class="asset-label">01 / CODE</span><strong>&lt;/&gt;</strong></div><div class="mini-asset"><span class="asset-label">02 / SYSTEM</span><strong>SYS_</strong></div><div class="mini-asset"><span class="asset-label">03 / DATA</span><strong>0101</strong></div></div></div></section>
+
+  <section class="section projects" id="projects"><div class="container"><div class="section-head"><div><div class="section-kicker">03 / SELECTED WORKS</div><h2 class="section-title">PROJECT<br /><span>ARCHIVE.</span></h2></div><p class="section-copy">Kumpulan project dari tugas kuliah, eksperimen, kebutuhan bisnis, sampai automation tools.</p></div><div class="project-list">{["ORDERIN","MENTARI","SPK SYSTEM","LM STORE","DATA SYSTEMS"].map((title,index)=><article class:list={['project-card',index===0&&'project-featured']}><div class="project-index">0{index+1}</div><div class="project-info"><div class="project-category">WEB SYSTEM / INFORMATION SYSTEM</div><h3 class="project-title">{title}</h3><p class="project-desc">Sistem dan eksperimen digital untuk menyelesaikan problem nyata dengan web, database, automation, dan data.</p><div class="project-stack"><span class="skill-pill">PHP</span><span class="skill-pill">JAVASCRIPT</span><span class="skill-pill">MYSQL</span></div><a href="#contact" class="project-link">VIEW PROJECT</a></div><div class="project-visual"><div class="visual-yellow"></div><div class="visual-frame"></div><div class="visual-code">{title}<br />STATUS: ONLINE</div></div></article>)}</div></div></section>
+
+  <section class="section" id="skills"><div class="container"><div class="section-head"><div><div class="section-kicker">04 / CAPABILITY MATRIX</div><h2 class="section-title">TOOLS<br /><span>& TECH.</span></h2></div><p class="section-copy">Tools yang digunakan untuk membangun aplikasi, mengolah data, dan mengotomatisasi pekerjaan.</p></div><div class="skills-grid"><div>{[['LANGUAGES','PHP','JavaScript','Python','SQL','HTML','CSS'],['FRAMEWORK / TOOLS','Bootstrap','Tailwind','CodeIgniter','Git','Composer'],['DATABASE','MySQL','MariaDB','phpMyAdmin']].map((group)=><div class="skill-group"><div class="skill-group-head"><span>{group[0]}</span><span>01</span></div><div class="skill-list">{group.slice(1).map((item)=><span class="skill-pill">{item}</span>)}</div></div>)}</div><div class="progress-list">{[['WEB DEVELOPMENT','90%'],['DATABASE / SQL','85%'],['AUTOMATION','82%'],['UI IMPLEMENTATION','86%'],['DATA / PYTHON','72%']].map(([label,value])=><div><div class="progress-label"><span>{label}</span><span>{value}</span></div><div class="progress-track"><div class="progress-fill" style={`width:${value}`}></div></div></div>)}</div></div><TechRail /></div></section>
+
+  <CertificateSection />
+
+  <section class="section experience" id="experience"><div class="container"><div class="section-head"><div><div class="section-kicker">05 / EXPERIENCE LOG</div><h2 class="section-title">FIELD<br /><span>ROADMAP.</span></h2></div><p class="section-copy">Lintasan akademik dan pengalaman lapangan yang membentuk cara gue membaca masalah lalu mengubahnya menjadi sistem.</p></div><div class="roadmap"><div class="roadmap-track"></div>{[['2026 / PRESENT','01','Software / Web Development','PERSONAL PROJECTS / FREELANCE / ACADEMIC'],['INTERNSHIP','02','IT / Student Support','FAKULTAS ILMU KOMPUTER'],['ACADEMIC','03','Information Systems','UNIVERSITAS PAMULANG']].map(([date,index,title,place],step)=><article class:list={['roadmap-stop',step%2===1?'roadmap-stop-reverse':'']}><div class="roadmap-marker"><span>{index}</span></div><div class="roadmap-card"><div class="roadmap-card-head"><span class="timeline-date">{date}</span><span class="roadmap-state">{step===0?'ACTIVE':'ARCHIVED'}</span></div><h3 class="timeline-title">{title}</h3><div class="timeline-place">{place}</div><p class="timeline-desc">Membangun aplikasi web, database system, automation tools, dan eksperimen teknologi untuk kebutuhan nyata maupun pembelajaran.</p><div class="roadmap-signal"><span></span><span></span><span></span></div></div></article>)}</div></div></section>
+
+  <section class="section" id="contact"><div class="container"><div class="contact-grid"><div><div class="section-kicker">06 / TRANSMISSION</div><h2 class="contact-title">LET'S<br /><span>BUILD.</span></h2><p class="section-copy" style="margin-top:28px">Punya ide, project, atau masalah yang perlu dibuatkan solusi digital? Kirim sinyal.</p><div class="contact-info"><div class="contact-row"><span>EMAIL</span><span>your@email.com</span></div><div class="contact-row"><span>GITHUB</span><span>github.com/lukman754</span></div><div class="contact-row"><span>LINKEDIN</span><span>linkedin.com/in/lukman-muludin</span></div></div></div><div class="contact-terminal"><div class="terminal-head">● chopin@portfolio:~$</div><div class="terminal-body"># initiate_connection<br /><br />$ echo <span class="terminal-yellow">"Hello, let's build."</span><br />connection_status: <span class="terminal-yellow">READY</span><br />response_time: &lt; 24h</div></div></div></div></section>
+</main>

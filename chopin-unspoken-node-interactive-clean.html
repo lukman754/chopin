@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CHOPIN — UNSPOKEN NODE</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #f5f5f2;
+      }
+      #scene {
+        width: 100%;
+        height: 100%;
+      }
+      .ui {
+        position: fixed;
+        inset: 0;
+        padding: 28px;
+        pointer-events: none;
+        font-family: monospace;
+        color: #171717;
+      }
+      .title {
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        font-size: 16px;
+      }
+      .sub {
+        font-size: 9px;
+        color: #777;
+        letter-spacing: 0.16em;
+        margin-top: 8px;
+      }
+      .badge {
+        position: absolute;
+        right: 28px;
+        top: 28px;
+        border: 1px solid #999;
+        padding: 13px 16px;
+        background: #f5f5f2d9;
+        font-size: 9px;
+        line-height: 1.9;
+        letter-spacing: 0.13em;
+        min-width: 190px;
+      }
+      .badge b {
+        background: #f5ff00;
+        padding: 2px 5px;
+        color: #111;
+      }
+      .caption {
+        position: absolute;
+        left: 28px;
+        bottom: 28px;
+        font-size: 9px;
+        color: #777;
+        letter-spacing: 0.14em;
+      }
+      .caption strong {
+        color: #111;
+      }
+      .mark {
+        position: absolute;
+        right: 28px;
+        bottom: 28px;
+        font-size: 10px;
+        letter-spacing: 0.28em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scene"></div>
+    <div class="ui">
+      <div class="title">CHOPIN NODE</div>
+      <div class="sub">C-01 / PRESSURE CONTAINMENT<br />UNSPOKEN ENERGY</div>
+      <div class="badge">
+        CORE PRESSURE: <b id="pressure">020%</b><br />
+        SIGNAL: <span id="signal">LOW</span><br />
+        STATUS: <b id="status">CALM</b>
+      </div>
+      <div class="caption">
+        <strong>IDEA → PRESSURE → EXPRESSION</strong><br />move closer · explore
+        · make it react
+      </div>
+      <div class="mark">CHOPIN<br />MMXXVI</div>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from "three";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xf5f5f2);
+
+      const camera = new THREE.PerspectiveCamera(
+        35,
+        innerWidth / innerHeight,
+        0.1,
+        100,
+      );
+      camera.position.set(4.8, 3.3, 6.8);
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+      renderer.setSize(innerWidth, innerHeight);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      document.getElementById("scene").appendChild(renderer.domElement);
+
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.enablePan = false;
+      controls.minDistance = 4.8;
+      controls.maxDistance = 9;
+      controls.target.set(0, 0.15, 0);
+
+      scene.add(new THREE.HemisphereLight(0xffffff, 0xb0b0aa, 2.2));
+
+      const key = new THREE.DirectionalLight(0xffffff, 4);
+      key.position.set(4, 7, 6);
+      key.castShadow = true;
+      key.shadow.mapSize.set(1024, 1024);
+      scene.add(key);
+
+      const rim = new THREE.DirectionalLight(0xf5ff00, 1.1);
+      rim.position.set(-4, 3, -5);
+      scene.add(rim);
+
+      const yellow = new THREE.MeshStandardMaterial({
+        color: 0xf5ff00,
+        emissive: 0xd8cf00,
+        emissiveIntensity: 2.1,
+        metalness: 0.18,
+        roughness: 0.22,
+      });
+      const dark = new THREE.MeshStandardMaterial({
+        color: 0x171717,
+        metalness: 0.78,
+        roughness: 0.25,
+      });
+      const white = new THREE.MeshStandardMaterial({
+        color: 0xe8e8e2,
+        metalness: 0.35,
+        roughness: 0.35,
+      });
+      const glass = new THREE.MeshPhysicalMaterial({
+        color: 0xdfe2df,
+        transparent: true,
+        opacity: 0.045,
+        roughness: 0.2,
+        metalness: 0.1,
+        side: THREE.DoubleSide,
+      });
+
+      const node = new THREE.Group();
+      scene.add(node);
+
+      /* CONTAINMENT CUBE */
+      const cage = new THREE.Group();
+      node.add(cage);
+
+      const size = 3.15;
+      const half = size / 2;
+
+      const frameMat = new THREE.LineBasicMaterial({
+        color: 0x777772,
+        transparent: true,
+        opacity: 0.8,
+      });
+      const frame = new THREE.LineSegments(
+        new THREE.EdgesGeometry(new THREE.BoxGeometry(size, size, size)),
+        frameMat,
+      );
+      cage.add(frame);
+
+      const glassCube = new THREE.Mesh(
+        new THREE.BoxGeometry(3.02, 3.02, 3.02),
+        glass,
+      );
+      cage.add(glassCube);
+
+      /* bright structural rods */
+      function rod(a, b, material = white, r = 0.055) {
+        const va = new THREE.Vector3(...a),
+          vb = new THREE.Vector3(...b);
+        const dir = new THREE.Vector3().subVectors(vb, va);
+        const mesh = new THREE.Mesh(
+          new THREE.CylinderGeometry(r, r, dir.length(), 12),
+          material,
+        );
+        mesh.position.copy(va).add(vb).multiplyScalar(0.5);
+        mesh.quaternion.setFromUnitVectors(
+          new THREE.Vector3(0, 1, 0),
+          dir.normalize(),
+        );
+        mesh.castShadow = true;
+        cage.add(mesh);
+        return mesh;
+      }
+      const c = [
+        [-half, -half, -half],
+        [half, -half, -half],
+        [-half, half, -half],
+        [half, half, -half],
+        [-half, -half, half],
+        [half, -half, half],
+        [-half, half, half],
+        [half, half, half],
+      ];
+      [
+        [0, 1],
+        [1, 3],
+        [3, 2],
+        [2, 0],
+        [4, 5],
+        [5, 7],
+        [7, 6],
+        [6, 4],
+        [0, 4],
+        [1, 5],
+        [2, 6],
+        [3, 7],
+      ].forEach((e) => rod(c[e[0]], c[e[1]]));
+
+      /* corner clamps */
+      function clamp(pos) {
+        const g = new THREE.Group();
+        g.position.set(...pos);
+        const body = new THREE.Mesh(
+          new THREE.BoxGeometry(0.38, 0.38, 0.38),
+          dark,
+        );
+        body.castShadow = true;
+        g.add(body);
+        const band = new THREE.Mesh(
+          new THREE.BoxGeometry(0.42, 0.1, 0.42),
+          yellow,
+        );
+        band.position.y = 0.09;
+        g.add(band);
+        cage.add(g);
+      }
+      c.forEach(clamp);
+
+      /* CORE: clean crystalline sphere, NO SPIKES */
+      const core = new THREE.Group();
+      node.add(core);
+
+      const shell = new THREE.Mesh(
+        new THREE.IcosahedronGeometry(0.82, 2),
+        yellow,
+      );
+      shell.scale.set(1, 0.98, 0.94);
+      shell.castShadow = true;
+      core.add(shell);
+
+      const inner = new THREE.Mesh(
+        new THREE.SphereGeometry(0.56, 24, 24),
+        new THREE.MeshBasicMaterial({
+          color: 0xffff75,
+          transparent: true,
+          opacity: 0.25,
+        }),
+      );
+      core.add(inner);
+
+      /* restrained orbit rings */
+      const rings = [];
+      for (let i = 0; i < 4; i++) {
+        const r = new THREE.Mesh(
+          new THREE.TorusGeometry(1.02 + i * 0.07, 0.025, 8, 72),
+          i % 2 ? dark : yellow,
+        );
+        r.rotation.set(0.25 + i * 0.72, 0.4 + i * 0.55, i * 0.65);
+        core.add(r);
+        rings.push(r);
+      }
+
+      /* subtle internal facets */
+      const wire = new THREE.LineSegments(
+        new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(0.835, 1)),
+        new THREE.LineBasicMaterial({
+          color: 0x8b8b82,
+          transparent: true,
+          opacity: 0.42,
+        }),
+      );
+      core.add(wire);
+
+      /* small energy particles */
+      const particles = new THREE.Group();
+      node.add(particles);
+      for (let i = 0; i < 16; i++) {
+        const p = new THREE.Mesh(
+          new THREE.SphereGeometry(0.025, 6, 6),
+          new THREE.MeshBasicMaterial({ color: 0xf5ff00 }),
+        );
+        const a = Math.random() * Math.PI * 2,
+          r = 1.75 + Math.random() * 1.15;
+        p.userData = {
+          a,
+          r,
+          phase: Math.random() * 6.28,
+          s: 0.5 + Math.random(),
+        };
+        particles.add(p);
+      }
+
+      /* lightweight electric arcs */
+      const arcGroup = new THREE.Group();
+      node.add(arcGroup);
+      const arcs = [];
+      function makeArc(i) {
+        const line = new THREE.Line(
+          new THREE.BufferGeometry(),
+          new THREE.LineBasicMaterial({
+            color: 0xf5ff00,
+            transparent: true,
+            opacity: 0.7,
+          }),
+        );
+        arcGroup.add(line);
+        return { line, phase: Math.random() * 6.28, offset: i };
+      }
+      for (let i = 0; i < 5; i++) arcs.push(makeArc(i));
+
+      function updateArcs(t, p) {
+        arcs.forEach((a, i) => {
+          const pts = [];
+          const ang = (i / 5) * Math.PI * 2 + t * 0.12;
+          const start = 0.82,
+            end = 1.45 + Math.sin(t * 1.5 + i) * 0.16;
+          for (let j = 0; j < 7; j++) {
+            const u = j / 6;
+            const r = THREE.MathUtils.lerp(start, end, u);
+            const x = Math.cos(ang) * r;
+            const z = Math.sin(ang) * r;
+            const y =
+              Math.sin(t * 7 + j * 2.7 + i) * 0.16 * (1 - u) +
+              Math.sin(t * 1.7 + i) * 0.25;
+            pts.push(new THREE.Vector3(x, y, z));
+          }
+          a.line.geometry.dispose();
+          a.line.geometry = new THREE.BufferGeometry().setFromPoints(pts);
+          const flicker =
+            0.25 + 0.55 * ((Math.sin(t * (3 + p * 8) + i) + 1) / 2);
+          a.line.material.opacity = flicker * (0.25 + p * 0.9);
+          a.line.visible =
+            Math.sin(t * (1.5 + p * 5) + i * 1.7) > -0.45 - p * 0.35;
+        });
+      }
+
+      /* GRID FLOOR */
+      const floor = new THREE.Mesh(
+        new THREE.PlaneGeometry(20, 20),
+        new THREE.MeshStandardMaterial({ color: 0xf0f0ec, roughness: 1 }),
+      );
+      floor.rotation.x = -Math.PI / 2;
+      floor.position.y = -2.0;
+      floor.receiveShadow = true;
+      scene.add(floor);
+
+      const grid = new THREE.GridHelper(20, 40, 0xc5c5c0, 0xdededa);
+      grid.position.y = -1.995;
+      grid.material.transparent = true;
+      grid.material.opacity = 0.65;
+      scene.add(grid);
+
+      const shadow = new THREE.Mesh(
+        new THREE.CircleGeometry(2.6, 64),
+        new THREE.MeshBasicMaterial({
+          color: 0x777777,
+          transparent: true,
+          opacity: 0.08,
+        }),
+      );
+      shadow.rotation.x = -Math.PI / 2;
+      shadow.position.y = -1.98;
+      shadow.scale.set(1, 0.55, 1);
+      scene.add(shadow);
+
+      const clock = new THREE.Clock();
+      const pressureEl = document.getElementById("pressure");
+      const signalEl = document.getElementById("signal");
+      const statusEl = document.getElementById("status");
+
+      /* INTERACTIVE PRESSURE SYSTEM
+   Mouse proximity + movement + scroll + time spent exploring.
+*/
+      let targetPressure = 18;
+      let pressure = 18;
+      let mouseX = 0,
+        mouseY = 0;
+      let lastMouseMove = performance.now();
+      let scrollBoost = 0;
+      let hoverEnergy = 0;
+
+      addEventListener("pointermove", (e) => {
+        mouseX = (e.clientX / innerWidth) * 2 - 1;
+        mouseY = -(e.clientY / innerHeight) * 2 + 1;
+        lastMouseMove = performance.now();
+
+        // Attention: moving the pointer around the hero adds pressure.
+        hoverEnergy = Math.min(1, hoverEnergy + 0.035);
+      });
+
+      addEventListener("wheel", (e) => {
+        scrollBoost = Math.min(
+          1,
+          scrollBoost + Math.min(Math.abs(e.deltaY) / 1200, 0.16),
+        );
+      });
+
+      function pressureColor(p) {
+        const yellow = new THREE.Color(0xf5ff00);
+        const amber = new THREE.Color(0xff8a00);
+        const red = new THREE.Color(0xff1717);
+        const hot = new THREE.Color(0xffffff);
+
+        if (p < 55) return yellow.clone().lerp(amber, p / 55);
+        if (p < 88) return amber.clone().lerp(red, (p - 55) / 33);
+        return red.clone().lerp(hot, (p - 88) / 12);
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        const t = clock.getElapsedTime();
+
+        /* pressure sources */
+        const idle = Math.min((performance.now() - lastMouseMove) / 4000, 1);
+        const proximity =
+          1 - Math.min(Math.hypot(mouseX * 0.82, mouseY * 0.82), 1);
+        const timePressure = Math.min(t / 75, 1) * 22;
+
+        targetPressure =
+          18 +
+          proximity * 32 +
+          hoverEnergy * 24 +
+          scrollBoost * 20 +
+          timePressure +
+          Math.sin(t * 0.75) * 3;
+
+        if (idle > 0.75) targetPressure -= idle * 18;
+        targetPressure = THREE.MathUtils.clamp(targetPressure, 8, 100);
+
+        pressure = THREE.MathUtils.lerp(pressure, targetPressure, 0.035);
+
+        // Slowly decay interaction energy when the user stops interacting.
+        hoverEnergy *= 0.994;
+        scrollBoost *= 0.985;
+
+        const p = pressure / 100;
+        const coreColor = pressureColor(pressure);
+        shell.material.color.copy(coreColor);
+        shell.material.emissive.copy(coreColor);
+        shell.material.emissiveIntensity = 1.5 + p * 4.5;
+        inner.material.color.copy(coreColor);
+
+        pressureEl.textContent =
+          String(Math.round(pressure)).padStart(3, "0") + "%";
+
+        const signal =
+          pressure < 35
+            ? "LOW"
+            : pressure < 70
+              ? "ACTIVE"
+              : pressure < 88
+                ? "HIGH"
+                : "PEAK";
+        const state =
+          pressure < 35
+            ? "CALM"
+            : pressure < 60
+              ? "ACTIVE"
+              : pressure < 82
+                ? "UNSTABLE"
+                : pressure < 95
+                  ? "CRITICAL"
+                  : "OVERLOAD";
+        signalEl.textContent = signal;
+        statusEl.textContent = state;
+
+        /* pressure changes the physical behavior */
+        const pulse = 0.025 + p * 0.09;
+        const breathe = 1 + Math.sin(t * (1.1 + p * 3)) * pulse;
+        core.scale.set(
+          breathe,
+          1 + Math.sin(t * (1.1 + p * 3) + 0.7) * (pulse * 1.15),
+          breathe,
+        );
+
+        shell.rotation.x = t * 0.16;
+        shell.rotation.y = t * 0.28;
+        wire.rotation.x = -t * 0.12;
+        wire.rotation.y = t * 0.2;
+        inner.scale.setScalar(1 + 0.07 * Math.sin(t * 1.25));
+
+        rings.forEach((r, i) => {
+          r.rotation.x += 0.002 + i * 0.0007;
+          r.rotation.y += 0.003;
+        });
+
+        particles.children.forEach((p) => {
+          const d = p.userData;
+          const r = d.r + Math.sin(t * d.s + d.phase) * (0.12 + p * 0.28);
+          p.position.set(
+            Math.cos(d.a + t * (0.07 + p * 0.1)) * r,
+            Math.sin(t * d.s + d.phase) * (1.15 + p * 0.7),
+            Math.sin(d.a + t * (0.07 + p * 0.1)) * r,
+          );
+          p.scale.setScalar(
+            0.55 + 0.45 * Math.abs(Math.sin(t * d.s + d.phase)),
+          );
+        });
+
+        node.rotation.y = t * (0.035 + p * 0.018);
+        node.rotation.x = Math.sin(t * (0.25 + p * 0.45)) * (0.018 + p * 0.025);
+        cage.position.x = 0;
+        cage.position.y = 0;
+        updateArcs(t, p);
+
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      addEventListener("resize", () => {
+        camera.aspect = innerWidth / innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(innerWidth, innerHeight);
+      });
+    </script>
+  </body>
+</html>
