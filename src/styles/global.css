@@ -367,18 +367,20 @@ section {
   display: none;
   width: 42px;
   height: 42px;
-  background: var(--black);
-  color: var(--yellow);
-  border: 1px solid var(--black);
+  background: transparent;
+  color: var(--black);
+  border: 0;
+  box-shadow: none;
+  outline: 0;
   position: relative;
   place-items: center;
   cursor: pointer;
   padding: 0;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+  transition: color 0.2s, transform 0.2s;
 }
 .menu-toggle:hover {
-  background: var(--yellow);
-  color: var(--black);
+  background: transparent;
+  color: #555;
 }
 .menu-toggle-icon {
   width: 24px;
