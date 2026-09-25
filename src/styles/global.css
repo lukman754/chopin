@@ -1123,20 +1123,20 @@ section {
 .certificates::after {
   content: "";
   position: absolute;
-  bottom: 50px;
+  bottom: 80px;
   left: 0;
   right: 0;
-  height: 7px;
+  height: 25px;
   z-index: 0;
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    var(--black) 0,
-    var(--black) 1px,
-    transparent 1px,
-    transparent 5px,
-    var(--black) 5px,
-    var(--black) 6px,
+    rgba(50, 50, 50, 0.5) 0px,
+    rgba(50, 50, 50, 0.5) 3px,
+    rgba(50, 50, 50, 0.2) 7px,
+    rgba(150, 150, 150, 0.2) 15px,
+    rgba(255, 255, 255, 0.5) 0px,
+    rgba(255, 255, 255, 0.5) 40px,
     transparent 6px
   );
 }
@@ -1516,11 +1516,7 @@ section {
   bottom: 0;
   border-radius: 50px;
   border: 5px solid #d8d8d8;
-  background: repeating-linear-gradient(
-    -45deg,
-    #f1f1f1 0 9px,
-    #fafafa 9px 18px
-  );
+  background: repeating-linear-gradient(-45deg, #d9d9d9 0 4px, #e6e6e6 4px 8px);
 }
 .certificate-control {
   position: relative;
@@ -1536,8 +1532,8 @@ section {
   display: grid;
   place-items: center;
   box-shadow:
-    0 7px 15px #0000002e,
-    inset 0 0 0 9px #d8d8d8;
+    0 7px 5px #0000002e,
+    inset 0 0 0 4px #d8d8d8;
   transition:
     transform 0.2s ease,
     background 0.2s ease,
@@ -1548,7 +1544,7 @@ section {
   content: "";
   position: absolute;
   inset: 6px;
-  border: 5px solid #f2f2f2;
+  border: 1px solid #f2f2f2;
   border-radius: 50%;
   box-shadow: inset 0 0 0 2px #dedede;
   pointer-events: none;
@@ -1587,10 +1583,10 @@ section {
   display: block;
   top: 50%;
   left: 50%;
-  width: 15px;
-  height: 15px;
-  border-top: 6px solid #444;
-  border-right: 6px solid #444;
+  width: 12px;
+  height: 12px;
+  border-top: 4px solid #444;
+  border-right: 4px solid #444;
 }
 .nav-btn--prev .nav-arrow {
   transform: translate(-38%, -50%) rotate(-135deg);
@@ -2401,8 +2397,8 @@ section {
     width: min(54px, 18vw);
     height: min(54px, 18vw);
     box-shadow:
-      0 7px 15px #0000002e,
-      inset 0 0 0 7px #d8d8d8;
+      0 7px 5px #0000002e,
+      inset 0 0 0 3px #d8d8d8;
   }
   .certificate-controls {
     width: min(200px, 94vw);
