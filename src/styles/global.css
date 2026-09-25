@@ -451,20 +451,24 @@ section {
   background: #f8f8f6;
   color: var(--black);
 }
-.intro-section:after {
+.intro-section::after {
   content: "";
   position: absolute;
+  bottom: 60px;
   left: 0;
   right: 0;
-  bottom: 0;
   height: 25px;
   z-index: 0;
-  background: repeating-linear-gradient(
-    -45deg,
-    #00000030 0,
-    #00000030 8px,
-    transparent 8px,
-    transparent 12px
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(50, 50, 50, 0.5) 0px,
+    rgba(50, 50, 50, 0.5) 3px,
+    rgba(50, 50, 50, 0.2) 7px,
+    rgba(150, 150, 150, 0.2) 15px,
+    rgba(255, 255, 255, 0.5) 0px,
+    rgba(255, 255, 255, 0.5) 40px,
+    transparent 6px
   );
 }
 .intro-watermark {
