@@ -203,6 +203,22 @@ const setSidebarOpen = (open) => {
 
 
 
+const menuToggleIcon = document.getElementById("menuToggleIcon");
+let currentMenuIconHref = "";
+
+const updateMenuToggleIcon = (targetHref) => {
+  if (!menuToggleIcon || !targetHref || targetHref === currentMenuIconHref) return;
+  const activeLink = document.querySelector(`.sidebar-link[href="${targetHref}"]`);
+  const iconHtml = activeLink?.querySelector(".sidebar-icon")?.innerHTML;
+  if (!iconHtml) return;
+
+  currentMenuIconHref = targetHref;
+  menuToggleIcon.innerHTML = iconHtml;
+  menuToggleIcon.classList.remove("is-changing");
+  void menuToggleIcon.offsetWidth;
+  menuToggleIcon.classList.add("is-changing");
+};
+
 menuToggle?.addEventListener("click", () => {
   setSidebarOpen(!sidebar?.classList.contains("is-open"));
 });
@@ -210,12 +226,14 @@ menuToggle?.addEventListener("click", () => {
 document.querySelectorAll(".sidebar-link").forEach((link) => {
   link.addEventListener("click", () => {
     setSidebarOpen(false);
+    const targetHref = link.getAttribute("href");
     document.querySelectorAll(".sidebar-link").forEach((item) => {
       item.classList.toggle(
         "active",
-        item.getAttribute("href") === link.getAttribute("href"),
+        item.getAttribute("href") === targetHref,
       );
     });
+    if (targetHref) updateMenuToggleIcon(targetHref);
   });
 });
 
@@ -324,18 +342,21 @@ const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
+      const targetHref = `#${entry.target.id}`;
       links.forEach((link) => {
         link.classList.toggle(
           "active",
-          link.getAttribute("href") === `#${entry.target.id}`,
+          link.getAttribute("href") === targetHref,
         );
       });
+      updateMenuToggleIcon(targetHref);
     });
   },
   { rootMargin: "-35% 0px -55% 0px" },
 );
 
 sections.forEach((section) => observer.observe(section));
+updateMenuToggleIcon(document.querySelector(".sidebar-link.active")?.getAttribute("href") || "#intro");
 
 const revealTargets = document.querySelectorAll(
   ".hero-top, .hero-mode, .section-head, .about-grid, .about-assets, " +
