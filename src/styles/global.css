@@ -142,17 +142,6 @@ section {
   content: "CHOPIN.EXE";
   font: 8px "Space Mono";
 }
-.coordinates {
-  display: flex;
-  flex-direction: column;
-  font: 8px/1.7 "Space Mono";
-  letter-spacing: 0.1em;
-  color: var(--gray);
-}
-.coordinates strong {
-  color: var(--black);
-  font-size: 10px;
-}
 .status-dot {
   width: 7px;
   height: 7px;
@@ -203,9 +192,6 @@ section {
   height: 35px;
   display: grid;
   place-items: center;
-  background: var(--black);
-  color: var(--yellow);
-  font: 700 11px "Space Mono";
 }
 .sidebar-brand-copy,
 .sidebar-label,
@@ -304,6 +290,7 @@ section {
   font: 8px "Space Mono";
   white-space: nowrap;
 }
+
 .site-header {
   position: fixed;
   top: 0;
@@ -349,9 +336,6 @@ section {
   height: 34px;
   display: none;
   place-items: center;
-  background: var(--black);
-  color: var(--yellow);
-  font: 700 13px "Space Mono";
 }
 .logo-mark img,
 .sidebar-brand-mark img {
@@ -413,8 +397,8 @@ section {
   right: 26px;
   bottom: 26px;
   z-index: 1200;
-  width: 58px;
-  height: 58px;
+  width: 38px;
+  height: 38px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2099,6 +2083,7 @@ section {
     left: 0;
     width: 100%;
   }
+
   .site-header .logo-mark {
     display: grid;
   }
@@ -2280,8 +2265,8 @@ section {
   .back-to-top {
     right: 14px;
     bottom: 14px;
-    width: 48px;
-    height: 48px;
+    width: 38px;
+    height: 38px;
   }
   .back-to-top-index {
     font-size: 6px;

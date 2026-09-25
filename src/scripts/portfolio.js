@@ -201,6 +201,8 @@ const setSidebarOpen = (open) => {
   );
 };
 
+
+
 menuToggle?.addEventListener("click", () => {
   setSidebarOpen(!sidebar?.classList.contains("is-open"));
 });
