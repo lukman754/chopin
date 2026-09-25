@@ -851,21 +851,9 @@ section {
   );
   z-index: 6;
 }
-.intro-photo-swipe--invert {
-  background: #f5ff0088;
-  backdrop-filter: invert(1) sepia(1) saturate(12) hue-rotate(2deg)
-    brightness(1.08);
-  -webkit-backdrop-filter: invert(1) sepia(1) saturate(12) hue-rotate(2deg)
-    brightness(1.08);
-  z-index: 5;
-}
 .intro-portrait.is-transitioning .intro-photo-swipe--black {
   opacity: 1;
   animation: portrait-swipe-black 1.4s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-}
-.intro-portrait.is-transitioning .intro-photo-swipe--invert {
-  opacity: 1;
-  animation: portrait-swipe-invert 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
 .intro-portrait.is-transitioning .intro-portrait-photo.is-active {
   animation: portrait-swipe-image 1.4s cubic-bezier(0.77, 0, 0.175, 1) both;
@@ -930,17 +918,6 @@ section {
     clip-path: inset(0);
   }
   65%,
-  100% {
-    clip-path: inset(0 100% 0 0);
-  }
-}
-@keyframes portrait-swipe-invert {
-  0% {
-    clip-path: inset(0 0 0 100%);
-  }
-  60% {
-    clip-path: inset(0);
-  }
   100% {
     clip-path: inset(0 100% 0 0);
   }
@@ -1219,9 +1196,8 @@ section {
   margin: 0 auto;
   overflow: hidden;
 }
-/* Certificate Swipe Transition System (Black -> Invert -> Color) */
-.cert-swipe-black,
-.cert-swipe-invert {
+/* Certificate Swipe Transition System (Lines -> Invert -> Color) */
+.cert-swipe-black {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -1240,28 +1216,11 @@ section {
   z-index: 10;
 }
 
-.cert-swipe-invert {
-  background: #f5ff0088;
-  backdrop-filter: invert(1) sepia(1) saturate(12) hue-rotate(2deg)
-    brightness(1.08);
-  -webkit-backdrop-filter: invert(1) sepia(1) saturate(12) hue-rotate(2deg)
-    brightness(1.08);
-  z-index: 5;
-}
-
 .certificate-carousel.is-swiping
   .certificate-slide.is-active
   .cert-swipe-black {
   opacity: 1;
   animation: cert-swipe-black-phase 1.4s cubic-bezier(0.77, 0, 0.175, 1)
-    forwards;
-}
-
-.certificate-carousel.is-swiping
-  .certificate-slide.is-active
-  .cert-swipe-invert {
-  opacity: 1;
-  animation: cert-swipe-invert-phase 1.2s cubic-bezier(0.77, 0, 0.175, 1)
     forwards;
 }
 
@@ -1301,18 +1260,6 @@ section {
   }
 }
 
-/* Phase 3: Invert exits right-to-left (60%-100%), revealing original color underneath */
-@keyframes cert-swipe-invert-phase {
-  0% {
-    clip-path: inset(0 0 0 100%);
-  }
-  60% {
-    clip-path: inset(0 0 0 0);
-  }
-  100% {
-    clip-path: inset(0 100% 0 0);
-  }
-}
 .certificate-slide {
   display: block;
   flex: 0 0 100%;
