@@ -718,10 +718,7 @@ section {
   letter-spacing: -0.075em;
 }
 .intro-content p span {
-  color: #fff;
-  mix-blend-mode: difference;
-  opacity: 50%;
-  filter: invert(1) sepia(1) saturate(12) hue-rotate(2deg) brightness(1.08);
+  color: var(--black);
 }
 .intro-profile {
   display: flex;

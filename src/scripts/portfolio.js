@@ -55,6 +55,62 @@ window.addEventListener(
   { passive: true },
 );
 
+const introTitleLines = [
+  ...document.querySelectorAll("[data-intro-normal][data-intro-away]"),
+];
+const introTitleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-";
+let introTitleAway = false;
+let introTitleScrambleTimers = [];
+
+const setIntroTitleState = (isAway) => {
+  introTitleAway = isAway;
+  introTitleScrambleTimers.forEach((timer) => window.clearInterval(timer));
+  introTitleScrambleTimers = [];
+  introTitleLines.forEach((line) => {
+    const target = isAway ? line.dataset.introAway : line.dataset.introNormal;
+    if (reducedMotion) {
+      line.textContent = target;
+      return;
+    }
+    let step = 0;
+    const totalSteps = Math.max(8, target.length);
+    const timer = window.setInterval(() => {
+      step += 1;
+      line.textContent = [...target]
+        .map((character, index) => {
+          if (character === " ") return " ";
+          if (index < step - 2) return character;
+          return introTitleCharacters[
+            Math.floor(Math.random() * introTitleCharacters.length)
+          ];
+        })
+        .join("");
+      if (step > totalSteps + 2) {
+        window.clearInterval(timer);
+        line.textContent = target;
+      }
+    }, 40);
+    introTitleScrambleTimers.push(timer);
+  });
+};
+
+let introTitleScrollY = window.scrollY;
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!introTitleLines.length) return;
+    const nextScrollY = window.scrollY;
+    if (nextScrollY > introTitleScrollY + 2 && !introTitleAway) {
+      setIntroTitleState(true);
+    }
+    if (nextScrollY < introTitleScrollY - 2 && introTitleAway) {
+      setIntroTitleState(false);
+    }
+    introTitleScrollY = nextScrollY;
+  },
+  { passive: true },
+);
+
 document.querySelectorAll(".intro-portrait img").forEach((image) => {
   image.addEventListener("error", () => image.classList.add("is-missing"));
 });
