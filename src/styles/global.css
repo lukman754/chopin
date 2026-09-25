@@ -1120,6 +1120,26 @@ section {
   font: 700 9px "Space Mono";
   letter-spacing: 0.12em;
 }
+.certificates::after {
+  content: "";
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  height: 7px;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    var(--black) 0,
+    var(--black) 1px,
+    transparent 1px,
+    transparent 5px,
+    var(--black) 5px,
+    var(--black) 6px,
+    transparent 6px
+  );
+}
 .certificate-marquee {
   position: absolute;
   top: 34px;
@@ -1167,7 +1187,7 @@ section {
   font-size: 16px;
 }
 .certificate-media-window {
-  width: 68%;
+  width: 60%;
   height: auto;
   overflow: hidden;
 }
@@ -1317,7 +1337,7 @@ section {
   font: 8px "Space Mono";
 }
 .certificate-info {
-  width: 32%;
+  width: 40%;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -1350,7 +1370,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 10px;
+  padding-right: 0;
   color: var(--black);
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
@@ -1477,7 +1497,7 @@ section {
 .certificate-controls {
   position: absolute;
   right: 10px;
-  bottom: 20px;
+  bottom: 50px;
   width: min(200px, 90%);
   height: 60px;
   padding: 0;
@@ -1490,10 +1510,12 @@ section {
 .nav-asset__track {
   position: absolute;
   z-index: 0;
-  left: 10px;
-  right: 10px;
-  top: 8px;
-  bottom: 8px;
+  left: -5px;
+  right: -5px;
+  top: 0;
+  bottom: 0;
+  border-radius: 50px;
+  border: 5px solid #d8d8d8;
   background: repeating-linear-gradient(
     -45deg,
     #f1f1f1 0 9px,
@@ -1503,9 +1525,9 @@ section {
 .certificate-control {
   position: relative;
   z-index: 2;
-  flex: 0 0 64px;
-  width: 64px;
-  height: 64px;
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
   padding: 0;
   border: 0;
   border-radius: 50%;
@@ -2375,9 +2397,9 @@ section {
     font-size: clamp(22px, 8vw, 34px);
   }
   .certificate-control {
-    flex-basis: min(64px, 18vw);
-    width: min(64px, 18vw);
-    height: min(64px, 18vw);
+    flex-basis: min(54px, 18vw);
+    width: min(54px, 18vw);
+    height: min(54px, 18vw);
     box-shadow:
       0 7px 15px #0000002e,
       inset 0 0 0 7px #d8d8d8;
@@ -2385,15 +2407,12 @@ section {
   .certificate-controls {
     width: min(200px, 94vw);
     height: min(64px, 20vw);
-  }
-  .nav-asset__track {
-    left: 15%;
-    right: 15%;
+    bottom: 20px;
   }
   .nav-arrow {
-    width: 15px;
-    height: 15px;
-    border-width: 6px;
+    width: 12px;
+    height: 12px;
+    border-width: 4px;
   }
   .roadmap {
     gap: 22px;
