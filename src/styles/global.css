@@ -191,7 +191,7 @@ section {
   width: var(--sidebar-expanded);
 }
 .sidebar-brand {
-  height: 112px;
+  height: 78px;
   padding: 20px 22px;
   display: flex;
   align-items: flex-start;
@@ -199,8 +199,8 @@ section {
   text-decoration: none;
 }
 .sidebar-brand-mark {
-  min-width: 29px;
-  height: 29px;
+  min-width: 35px;
+  height: 35px;
   display: grid;
   place-items: center;
   background: var(--black);
@@ -216,12 +216,13 @@ section {
   transition: opacity 0.15s;
 }
 .sidebar-brand-copy {
-  margin-left: 13px;
+  margin-left: 3px;
 }
 .sidebar-brand-name {
   display: block;
-  font-size: 15px;
-  letter-spacing: 0.13em;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 0.8;
 }
 .sidebar-brand-role {
   display: block;
@@ -266,7 +267,8 @@ section {
 }
 .sidebar-link.active {
   background: rgba(17, 17, 17, 0.28);
-  color: #fff;
+  color: #000;
+  font-weight: 700;
   border-left: 3px solid var(--yellow);
   padding-left: 9px;
 }
@@ -281,6 +283,7 @@ section {
 .sidebar-icon {
   width: 26px;
   min-width: 26px;
+  margin-top: 6px;
   color: #a5a5a5;
   font-size: 19px;
   text-align: center;
@@ -344,23 +347,28 @@ section {
 .logo-mark {
   width: 34px;
   height: 34px;
-  display: grid;
+  display: none;
   place-items: center;
   background: var(--black);
   color: var(--yellow);
   font: 700 13px "Space Mono";
+}
+.logo-mark img,
+.sidebar-brand-mark img {
+  width: 35px;
+  height: 35px;
+  display: block;
+  object-fit: contain;
 }
 .logo-info {
   display: flex;
   flex-direction: column;
 }
 .logo-name {
-  font-size: 15px;
+  font-size: 22px;
   font-weight: 700;
-  letter-spacing: 0.25em;
 }
 .logo-role {
-  margin-top: 6px;
   font: 8px "Space Mono";
   color: var(--gray);
 }
@@ -376,7 +384,7 @@ section {
   width: 42px;
   height: 42px;
   background: var(--white);
-  border: 1px solid var(--black);
+  border: 1px solid var(--white);
   position: relative;
 }
 .menu-toggle span,
@@ -385,7 +393,7 @@ section {
   content: "";
   position: absolute;
   width: 18px;
-  height: 1px;
+  height: 3px;
   background: var(--black);
   left: 11px;
 }
@@ -2090,6 +2098,9 @@ section {
   .site-header {
     left: 0;
     width: 100%;
+  }
+  .site-header .logo-mark {
+    display: grid;
   }
   .container {
     width: calc(100% - 64px);
