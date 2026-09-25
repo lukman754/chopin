@@ -910,10 +910,16 @@ section {
   0%,
   24% {
     clip-path: inset(0 0 0 100%);
+    filter: none;
   }
   48%,
+  72% {
+    clip-path: inset(0);
+    filter: invert(1) sepia(1) saturate(12) hue-rotate(2deg) brightness(1.08);
+  }
   100% {
     clip-path: inset(0);
+    filter: none;
   }
 }
 @keyframes portrait-swipe-black {
@@ -1267,12 +1273,15 @@ section {
 @keyframes cert-swipe-image-phase {
   0% {
     clip-path: inset(0 0 0 100%);
+    filter: none;
   }
   70% {
     clip-path: inset(0 0 0 0);
+    filter: invert(1) sepia(1) saturate(12) hue-rotate(2deg) brightness(1.08);
   }
   100% {
     clip-path: inset(0 0 0 0);
+    filter: none;
   }
 }
 
