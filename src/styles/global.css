@@ -2157,7 +2157,6 @@ section {
   .intro-section {
     width: 100%;
     max-width: 100vw;
-    min-height: 760px;
     align-items: flex-start;
     padding-top: 108px;
   }
