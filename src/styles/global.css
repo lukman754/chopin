@@ -376,7 +376,9 @@ section {
   place-items: center;
   cursor: pointer;
   padding: 0;
-  transition: color 0.2s, transform 0.2s;
+  transition:
+    color 0.2s,
+    transform 0.2s;
 }
 .menu-toggle:hover {
   background: transparent;
@@ -558,11 +560,10 @@ section {
 }
 .intro-operator-rail {
   position: absolute;
-  left: 28px;
-  top: 16%;
-  bottom: 13%;
+  right: 8%;
+  top: 55%;
+  bottom: -10%;
   z-index: 3;
-  width: 78px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -571,28 +572,27 @@ section {
   border-right: 1px dashed #bbb;
 }
 .intro-photo-switcher {
-  width: 108px;
-  top: 24%;
-  bottom: 24%;
   gap: 16px;
   padding: 14px 0;
   border-right: 0;
 }
 .intro-photo-switcher-track {
   position: absolute;
-  top: 68px;
-  bottom: 250px;
+  top: 8px;
+  bottom: 340px;
   left: 50%;
-  width: 52px;
+  width: 50px;
+  border-radius: 50px;
   transform: translateX(-50%);
   z-index: 0;
-  background: repeating-linear-gradient(-45deg, #eee 0 10px, #fafafa 10px 20px);
+  border: 3px solid #d9d9d9;
+  background: repeating-linear-gradient(-45deg, #c9c9c9 0 2px, #afafaf 2px 4px);
 }
 .intro-photo-choice {
   position: relative;
   z-index: 2;
-  width: 78px;
-  height: 78px;
+  width: 38px;
+  height: 38px;
   padding: 0;
   border: 6px solid #d9d9d9;
   border-radius: 50%;
@@ -659,8 +659,9 @@ section {
 .clothes-icon {
   position: relative;
   z-index: 5;
-  width: 38px;
-  height: 38px;
+  width: 18px;
+  height: 18px;
+  top: 2px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -672,17 +673,7 @@ section {
   display: block;
   filter: drop-shadow(0 2px 1px #1112);
 }
-.photo-choice-label {
-  position: absolute;
-  right: -12px;
-  bottom: 5px;
-  z-index: 6;
-  padding: 4px 5px;
-  background: var(--black);
-  color: #fff;
-  font: 700 6px "Space Mono";
-  letter-spacing: 0.08em;
-}
+
 .intro-operator-rail b {
   margin-top: auto;
   padding: 9px 7px;
@@ -951,8 +942,8 @@ section {
 }
 .intro-portrait-label {
   position: absolute;
-  right: -22px;
-  bottom: 35%;
+  right: -25px;
+  bottom: 15%;
   writing-mode: vertical-rl;
   font: 8px "Space Mono";
   letter-spacing: 0.18em;
@@ -2197,23 +2188,21 @@ section {
   .intro-operator-rail.intro-photo-switcher {
     display: flex;
     top: 55%;
-    right: 10px;
+    right: 25px;
     left: auto;
     bottom: auto;
-    width: 72px;
-    height: 164px;
     gap: 10px;
     padding: 0;
   }
   .intro-photo-switcher-track {
-    top: 29px;
-    bottom: 49px;
+    top: -5px;
+    bottom: -5px;
     border-radius: 50px;
-    width: 42px;
+    width: 45px;
   }
   .intro-photo-choice {
-    width: 58px;
-    height: 58px;
+    width: 38px;
+    height: 38px;
     border-width: 5px;
 
     box-shadow:
@@ -2228,15 +2217,10 @@ section {
     inset: 8px;
   }
   .clothes-icon {
-    width: 30px;
-    height: 30px;
+    width: 18px;
+    height: 18px;
   }
-  .photo-choice-label {
-    right: -10px;
-    bottom: 3px;
-    padding: 3px 4px;
-    font-size: 5px;
-  }
+
   .intro-photo-switcher b {
     margin-top: 0;
     padding: 5px 4px;
@@ -2274,7 +2258,7 @@ section {
     transform: translateX(-50%);
   }
   .intro-portrait-label {
-    right: 3px;
+    right: 25px;
     bottom: 30%;
     font-size: 6px;
   }
