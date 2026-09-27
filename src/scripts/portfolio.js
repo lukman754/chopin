@@ -384,3 +384,5 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealTargets.forEach((element) => revealObserver.observe(element));
+
+

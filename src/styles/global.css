@@ -575,11 +575,12 @@ section {
   gap: 16px;
   padding: 14px 0;
   border-right: 0;
+  bottom: auto;
 }
 .intro-photo-switcher-track {
   position: absolute;
-  top: 8px;
-  bottom: 340px;
+  top: 7px;
+  bottom: 7px;
   left: 50%;
   width: 50px;
   border-radius: 50px;
@@ -1386,7 +1387,6 @@ section {
   justify-content: flex-end;
   padding-right: 0;
   color: var(--black);
-  border: 1px solid rgba(0, 0, 0, 0.15);
 }
 .certificate-meta {
   display: flex;
@@ -1611,7 +1611,152 @@ section {
 .hero-top {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 40px;
+}
+
+/* Glassmorphism Skill Grid Container in Hero Section */
+.hero-glass-side {
+  width: min(440px, 45vw);
+  flex-shrink: 0;
+  align-self: flex-start;
+  z-index: 5;
+}
+
+.hero-skills-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Featured Skill Card spans full width */
+.hero-skill-card.hero-skill-featured {
+  grid-column: 1 / -1;
+}
+
+/* Individual Glassmorphism Skill Card */
+.hero-skill-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 20px;
+  /* Sci-fi corner notch: top-left & bottom-right */
+  clip-path: polygon(
+    12px 0, 100% 0,
+    100% calc(100% - 12px), calc(100% - 12px) 100%,
+    0 100%, 0 12px
+  );
+
+  /* Per-card Glassmorphism background & border */
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 16px 36px -8px rgba(0, 0, 0, 0.07),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  overflow: hidden;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-skill-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 24px 48px -10px rgba(0, 0, 0, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95);
+}
+
+/* Noise / Gain Overlay Effect per Card */
+.hero-glass-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.hero-skill-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-skill-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--black);
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.hero-skill-card:hover .hero-skill-icon-wrap {
+  transform: scale(1.08) rotate(-3deg);
+  background: #000;
+}
+
+.hero-ai-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: var(--yellow);
+  color: var(--black);
+  font: 700 8px "Space Mono", monospace;
+  padding: 1px 4px;
+  border-radius: 4px;
+  border: 1px solid var(--black);
+}
+
+.hero-skill-code {
+  font: 700 9px "Space Mono", monospace;
+  letter-spacing: 0.12em;
+  color: #555;
+}
+
+.hero-skill-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-skill-title {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.hero-skill-desc {
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  color: #444;
+  margin: 0;
+  line-height: 1.4;
+  font-weight: 500;
 }
 .hero h1 {
   margin: 25px 0;
@@ -1798,6 +1943,126 @@ section {
   font: 8px "Space Mono";
   color: var(--gray);
 }
+.mini-asset-desc {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #444;
+}
+.mini-asset-desc strong {
+  background: var(--yellow);
+}
+/* About Skills Glass Card with floating animation */
+.about-skills-glass-card {
+  position: relative;
+  z-index: 3;
+  margin-top: 24px;
+  padding: 20px 22px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 20px 40px -10px rgba(0, 0, 0, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  transform: translateY(var(--glass-float-y, 0px)) scale(var(--glass-float-scale, 1));
+  opacity: var(--glass-float-opacity, 1);
+  will-change: transform, opacity;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.about-skills-glass-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 28px 56px -12px rgba(0, 0, 0, 0.14),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95);
+}
+
+.about-glass-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.about-glass-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 700 9px "Space Mono", monospace;
+  letter-spacing: 0.12em;
+  color: var(--black);
+  text-transform: uppercase;
+}
+
+.about-glass-badge {
+  font: 700 8px "Space Mono", monospace;
+  background: var(--yellow);
+  color: var(--black);
+  padding: 2px 7px;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--black);
+}
+
+.about-glass-skills-list {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.glass-skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-family: Inter, sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--black);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.glass-skill-chip:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.glass-skill-chip--core {
+  background: var(--yellow);
+  border-color: var(--black);
+  font-weight: 800;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.glass-skill-chip--core .chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--black);
+}
+
+/* Shared FLIP / Morphing Scroll Element */
+
 .projects {
   background: #ededeb;
 }
@@ -2145,6 +2410,33 @@ section {
     display: grid;
   }
   .hero-side {
+    display: block;
+    width: 100%;
+  }
+  .hero-top {
+    flex-direction: column;
+  }
+  .hero-glass-side {
+    width: 100%;
+    margin-top: 32px;
+  }
+  .hero-skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .hero-skill-card.hero-skill-featured {
+    grid-column: auto;
+  }
+  .hero-skill-card {
+    padding: 12px 10px;
+    gap: 8px;
+    clip-path: none;
+    border-radius: 10px;
+  }
+  .hero-skill-title {
+    font-size: 11px;
+  }
+  .hero-skill-desc {
     display: none;
   }
   .hero-mascot {
