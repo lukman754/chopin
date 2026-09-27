@@ -1056,6 +1056,24 @@ section {
 .about-section {
   position: relative;
 }
+.about-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(#0000000d 1px, transparent 1px),
+    linear-gradient(90deg, #0000000d 1px, transparent 1px),
+    linear-gradient(45deg, #00000007 1px, transparent 1px),
+    linear-gradient(-45deg, #00000007 1px, transparent 1px);
+  background-size:
+    80px 80px,
+    80px 80px,
+    40px 40px,
+    40px 40px;
+  mask-image: radial-gradient(circle at 50% 50%, #000 65%, transparent 100%);
+}
 .body-rail-top,
 .body-rail-bottom {
   writing-mode: vertical-rl;
@@ -1637,6 +1655,7 @@ section {
 }
 
 /* Individual Glassmorphism Skill Card */
+/* Individual Skill Card - Industrial Sci-Fi / Tactical HUD Style */
 .hero-skill-card {
   position: relative;
   display: flex;
@@ -1645,45 +1664,70 @@ section {
   padding: 18px 20px;
   /* Sci-fi corner notch: top-left & bottom-right */
   clip-path: polygon(
-    12px 0, 100% 0,
-    100% calc(100% - 12px), calc(100% - 12px) 100%,
-    0 100%, 0 12px
+    12px 0,
+    100% 0,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    0 100%,
+    0 12px
   );
 
-  /* Per-card Glassmorphism background & border */
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow:
-    0 16px 36px -8px rgba(0, 0, 0, 0.07),
-    inset 0 1px 2px rgba(255, 255, 255, 0.9),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  /* Tactical solid background & border with Endfield Wave pattern */
+  background-color: rgba(255, 255, 255, 0.8);
+  background-image: url("/assets/odd/image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid var(--line);
   overflow: hidden;
-  transition:
-    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-skill-card:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.88);
-  border-color: rgba(255, 255, 255, 0.95);
-  box-shadow:
-    0 24px 48px -10px rgba(0, 0, 0, 0.12),
-    inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  transform: translate(-2px, -2px);
 }
 
-/* Noise / Gain Overlay Effect per Card */
+/* Featured Skill Card (BUILD card) - Dark Inverted Tactical Theme */
+.hero-skill-card.hero-skill-featured {
+  grid-column: 1 / -1;
+  background-color: rgb(40, 40, 40);
+  background-image: url("/assets/odd/btn.png");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  color: var(--white);
+  border: 1px solid var(--black);
+}
+
+.hero-skill-card.hero-skill-featured:hover {
+  transform: translate(-2px, -2px);
+}
+
+.hero-skill-card.hero-skill-featured .hero-skill-title {
+  color: var(--white);
+}
+
+.hero-skill-card.hero-skill-featured .hero-skill-desc {
+  color: #aaa;
+}
+
+.hero-skill-card.hero-skill-featured .hero-skill-code {
+  color: var(--yellow);
+}
+
+.hero-skill-card.hero-skill-featured .hero-skill-icon-wrap {
+  background: var(--yellow);
+  color: var(--black);
+  border-color: var(--yellow);
+}
+
+/* Texture Grain Overlay - subtle tactical grid/grain */
 .hero-glass-grain {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.22;
-  mix-blend-mode: overlay;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
@@ -1700,37 +1744,47 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+  border-radius: 0;
+  border: 1px solid var(--black);
   background: var(--black);
-  color: #fff;
+  color: var(--white);
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-  transition: transform 0.25s ease, background-color 0.25s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .hero-skill-card:hover .hero-skill-icon-wrap {
-  transform: scale(1.08) rotate(-3deg);
-  background: #000;
+  transform: scale(1.05);
+  background: var(--yellow);
+  color: var(--black);
+  border-color: var(--black);
 }
 
 .hero-ai-badge {
   position: absolute;
-  top: -4px;
-  right: -6px;
+  top: -5px;
+  right: -7px;
   background: var(--yellow);
   color: var(--black);
-  font: 700 8px "Space Mono", monospace;
+  font:
+    700 8px "Space Mono",
+    monospace;
   padding: 1px 4px;
-  border-radius: 4px;
+  border-radius: 0;
   border: 1px solid var(--black);
+  box-shadow: 1px 1px 0 var(--black);
 }
 
 .hero-skill-code {
-  font: 700 9px "Space Mono", monospace;
-  letter-spacing: 0.12em;
-  color: #555;
+  font:
+    700 9px "Space Mono",
+    monospace;
+  letter-spacing: 0.14em;
+  color: var(--gray);
 }
 
 .hero-skill-content {
@@ -1742,9 +1796,9 @@ section {
 
 .hero-skill-title {
   font-family: Inter, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
   color: var(--black);
   margin: 0 0 4px 0;
   line-height: 1.2;
@@ -1755,7 +1809,7 @@ section {
   font-size: 11px;
   color: #444;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.45;
   font-weight: 500;
 }
 .hero h1 {
@@ -1953,34 +2007,31 @@ section {
   background: var(--yellow);
 }
 /* About Skills Glass Card with floating animation */
+/* About Skills Card - Tactical Industrial Sci-Fi Style */
 .about-skills-glass-card {
   position: relative;
   z-index: 3;
   margin-top: 24px;
   padding: 20px 22px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.48);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  box-shadow:
-    0 20px 40px -10px rgba(0, 0, 0, 0.08),
-    inset 0 1px 2px rgba(255, 255, 255, 0.95),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  clip-path: polygon(
+    12px 0,
+    100% 0,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    0 100%,
+    0 12px
+  );
+  background-color: rgba(230, 230, 230, 0.8);
+  border: 1px solid var(--line);
   overflow: hidden;
-  transform: translateY(var(--glass-float-y, 0px)) scale(var(--glass-float-scale, 1));
+  transform: translateY(var(--glass-float-y, 0px))
+    scale(var(--glass-float-scale, 1));
   opacity: var(--glass-float-opacity, 1);
   will-change: transform, opacity;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.about-skills-glass-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  background: rgba(255, 255, 255, 0.7);
-  border-color: rgba(255, 255, 255, 0.95);
-  box-shadow:
-    0 28px 56px -12px rgba(0, 0, 0, 0.14),
-    inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .about-glass-header {
@@ -1991,21 +2042,25 @@ section {
   justify-content: space-between;
   margin-bottom: 14px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid var(--line);
 }
 
 .about-glass-label {
   display: flex;
   align-items: center;
   gap: 8px;
-  font: 700 9px "Space Mono", monospace;
+  font:
+    700 9px "Space Mono",
+    monospace;
   letter-spacing: 0.12em;
   color: var(--black);
   text-transform: uppercase;
 }
 
 .about-glass-badge {
-  font: 700 8px "Space Mono", monospace;
+  font:
+    700 8px "Space Mono",
+    monospace;
   background: var(--yellow);
   color: var(--black);
   padding: 2px 7px;
@@ -2027,37 +2082,39 @@ section {
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  font-family: Inter, sans-serif;
-  font-size: 11.5px;
-  font-weight: 600;
-  color: var(--black);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  border-radius: 2px;
+  background: rgb(37, 37, 37);
+  background-image: url(/public/assets/odd/btn.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--white);
+  transition: all 0.2s ease;
+}
+
+.glass-skill-chip svg {
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
 }
 
 .glass-skill-chip:hover {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: var(--black);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transform: translate(-1px, -1px);
 }
 
 .glass-skill-chip--core {
   background: var(--yellow);
-  border-color: var(--black);
-  font-weight: 800;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  color: var(--black);
+  font-weight: 700;
 }
 
 .glass-skill-chip--core .chip-dot {
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 0;
   background: var(--black);
 }
 
@@ -2422,22 +2479,64 @@ section {
   }
   .hero-skills-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    gap: 12px;
   }
   .hero-skill-card.hero-skill-featured {
     grid-column: auto;
+    background-color: rgb(40, 40, 40);
+    background-image: url("/assets/odd/image.png");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
   }
   .hero-skill-card {
-    padding: 12px 10px;
-    gap: 8px;
-    clip-path: none;
-    border-radius: 10px;
+    padding: 14px 12px;
+    gap: 10px;
+    clip-path: polygon(
+      10px 0,
+      100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%,
+      0 10px
+    );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0;
+  }
+  .hero-skill-card.hero-skill-featured {
+    box-shadow: 3px 3px 0 var(--yellow);
+  }
+  .hero-skill-top {
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .hero-skill-icon-wrap {
+    width: 32px;
+    height: 32px;
+  }
+  .hero-skill-icon-wrap svg {
+    width: 16px;
+    height: 16px;
+  }
+  .hero-skill-code {
+    font-size: 8px;
+    letter-spacing: 0.05em;
+    line-height: 1.25;
+    text-align: right;
+    word-break: break-word;
+    max-width: calc(100% - 38px);
   }
   .hero-skill-title {
-    font-size: 11px;
+    font-size: 13px;
   }
   .hero-skill-desc {
-    display: none;
+    display: block;
+    font-size: 10.5px;
+    line-height: 1.4;
   }
   .hero-mascot {
     opacity: 0.62;
