@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/check": "latest",
+    "@supabase/supabase-js": "^2.117.2",
     "astro": "latest",
     "lenis": "^1.3.26",
     "three": "^0.186.0",

@@ -1,3 +1,21 @@
+---
+import { getProfile } from "../lib/content";
+
+const profile = await getProfile();
+
+const rot13 = (str: string) =>
+  str.replace(/[a-zA-Z]/g, (c) => {
+    const base = c <= "Z" ? 65 : 97;
+    return String.fromCharCode(((c.charCodeAt(0) - base + 13) % 26) + base);
+  });
+
+const nameParts = profile.intro_name.trim().split(/\s+/);
+const firstName = (nameParts[0] ?? "CHOPIN").toUpperCase();
+const lastNameRaw = nameParts.slice(1).join(" ") || firstName;
+const lastName = (lastNameRaw.endsWith(".") ? lastNameRaw : `${lastNameRaw}.`).toUpperCase();
+const fullNamePlain = `${firstName} ${lastNameRaw.toUpperCase()}`;
+---
+
 <section class="intro-section" id="intro" aria-label="Portfolio introduction">
   <div class="intro-grid" aria-hidden="true"></div>
   <div class="intro-yellow-block" aria-hidden="true"></div>
@@ -20,7 +38,7 @@
     <div class="intro-system-line"><span>[ REC ]</span><span>OPERATOR PROFILE / SYSTEM ENTRY</span><strong>01 / 04</strong></div>
     <div class="intro-title-wrap">
       <span class="intro-kicker">CHOPIN / OPERATOR DATABASE</span>
-      <p><span data-intro-normal="LUKMAN" data-intro-away="YHXZNA">LUKMAN</span><br /><span data-intro-normal="MULUDIN." data-intro-away="ZHYHQVA">MULUDIN.</span></p>
+      <p><span data-intro-normal={firstName} data-intro-away={rot13(firstName)}>{firstName}</span><br /><span data-intro-normal={lastName} data-intro-away={rot13(lastName)}>{lastName}</span></p>
     </div>
     <div class="intro-profile">
       <div class="intro-profile-mark">
@@ -30,19 +48,19 @@
         <img src="https://img.icons8.com/?size=100&id=8184&format=png&color=ffffff" width="25" alt="Logo Chopin" loading="lazy" />
       </div>
       <div class="intro-profile-info">
-        <strong data-intro-normal="YHXZNA ZHYHQVA" data-intro-away="LUKMAN MULUDIN">YHXZNA ZHYHQVA</strong>
+        <strong data-intro-normal={rot13(fullNamePlain)} data-intro-away={fullNamePlain}>{rot13(fullNamePlain)}</strong>
         <span>CHOPIN / INFORMATION SYSTEMS</span>
       </div>
     </div>
     <div class="intro-metadata">
-      <span><b>FACTION</b> CHOPIN SYSTEMS</span>
-      <span><b>RACE</b> HUMAN</span>
-      <span><b>ROLE</b> WEB DEVELOPER</span>
+      <span><b>FACTION</b> {profile.intro_faction}</span>
+      <span><b>RACE</b> {profile.intro_race}</span>
+      <span><b>ROLE</b> {profile.intro_role}</span>
     </div>
   </div>
-  <div class="intro-portrait" data-photo-showcase aria-label="Foto Lukman Muludin">
-    <img class="intro-portrait-photo is-active" src="/assets/1.webp" alt="Foto Lukman Muludin casual" data-photo-slide data-photo-set="casual" />
-    <img class="intro-portrait-photo" src="/assets/4.webp" alt="Foto Lukman Muludin formal" data-photo-slide data-photo-set="formal" />
+  <div class="intro-portrait" data-photo-showcase aria-label={`Foto ${firstName} ${lastNameRaw}`}>
+    <img class="intro-portrait-photo is-active" src={profile.intro_photo_casual} alt={`Foto ${firstName} ${lastNameRaw} casual`} data-photo-slide data-photo-set="casual" />
+    <img class="intro-portrait-photo" src={profile.intro_photo_formal} alt={`Foto ${firstName} ${lastNameRaw} formal`} data-photo-slide data-photo-set="formal" />
     <span class="intro-photo-swipe intro-photo-swipe--black" aria-hidden="true"></span>
     <span class="intro-portrait-label">OPERATOR / 01 / ACTIVE</span>
   </div>

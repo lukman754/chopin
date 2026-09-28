@@ -1,34 +1,7 @@
 ---
-const certificates = [
-  {
-    image: "/assets/certificates/sertif1.jpg",
-    type: "CERTIFICATE / WEB SYSTEM",
-    title: "FULL STACK WEB DEVELOPMENT",
-    issuer: "DIGITAL LEARNING ARCHIVE",
-    date: "2026 / 01",
-  },
-  {
-    image: "/assets/certificates/sertif2.jpg",
-    type: "ACHIEVEMENT / AUTOMATION",
-    title: "BROWSER AUTOMATION SYSTEM",
-    issuer: "FIELD OPERATIONS UNIT",
-    date: "2025 / 11",
-  },
-  {
-    image: "/assets/certificates/sertif3.jpg",
-    type: "CERTIFICATE / DATA",
-    title: "DATABASE & INFORMATION SYSTEMS",
-    issuer: "ACADEMIC SYSTEMS LAB",
-    date: "2025 / 08",
-  },
-  {
-    image: "/assets/certificates/sertif4.jpg",
-    type: "ACHIEVEMENT / DESIGN POSTER",
-    title: "NATIONAL POSTER COMPETITION",
-    issuer: "UNIVERSITAS NEGERI YOGYAKARTA",
-    date: "2023 / 04",
-  },
-];
+import { getCertificates } from "../lib/content";
+
+const certificates = await getCertificates();
 ---
 
 <section class="section certificates" id="certificates">
@@ -42,15 +15,15 @@ const certificates = [
       <p class="section-copy">Sertifikat, penghargaan, dan bukti perjalanan belajar yang membentuk sistem kerja gue.</p>
     </div>
 
-    <div class="certificate-carousel" data-certificate-carousel>
+    {certificates.length===0?<p class="section-copy">Belum ada sertifikat untuk ditampilkan.</p>:<div class="certificate-carousel" data-certificate-carousel>
       <div class="certificate-index"><span data-certificate-current>01</span> / 0{certificates.length}</div>
       <div class="certificate-stage">
         <div class="certificate-media-window">
           <div class="certificate-track" data-certificate-track>
             {certificates.map((certificate, index) => (
-              <article class:list={['certificate-slide', index === 0 && 'is-active']} data-certificate-slide data-index={index} data-type={certificate.type} data-title={certificate.title} data-issuer={certificate.issuer} data-date={certificate.date}>
+              <article class:list={['certificate-slide', index === 0 && 'is-active']} data-certificate-slide data-index={index} data-type={certificate.type} data-title={certificate.title} data-issuer={certificate.issuer} data-date={certificate.date_label}>
                 <div class="certificate-image-wrap">
-                  <img src={certificate.image} alt={`Certificate: ${certificate.title}`} loading="lazy" />
+                  <img src={certificate.image_url} alt={`Certificate: ${certificate.title}`} loading="lazy" />
                   <div class="cert-swipe-black" aria-hidden="true"></div>
                   <div class="certificate-image-fallback"><span>CHOPIN<br />CREDENTIAL<br />{String(index + 1).padStart(2, "0")}</span></div>
                   <span class="certificate-image-mark">VERIFIED / {String(index + 1).padStart(2, "0")}</span>
@@ -69,7 +42,7 @@ const certificates = [
               </svg>
             </div>
           </div>
-          <div class="certificate-meta"><span data-certificate-field="type">{certificates[0].type}</span><span data-certificate-field="date">{certificates[0].date}</span></div>
+          <div class="certificate-meta"><span data-certificate-field="type">{certificates[0].type}</span><span data-certificate-field="date">{certificates[0].date_label}</span></div>
           <h3 data-certificate-field="title">{certificates[0].title}</h3>
           <div class="cert-tech-mid">
             <div class="cert-plus-box">+</div>
@@ -100,6 +73,6 @@ const certificates = [
         <button type="button" class="certificate-control nav-btn nav-btn--prev" data-certificate-prev aria-label="Previous certificate"><span class="nav-arrow" aria-hidden="true"></span></button>
         <button type="button" class="certificate-control nav-btn nav-btn--next" data-certificate-next aria-label="Next certificate"><span class="nav-arrow" aria-hidden="true"></span></button>
       </div>
-    </div>
+    </div>}
   </div>
 </section>

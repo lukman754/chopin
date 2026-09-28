@@ -1,0 +1,162 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/admin.css";
+---
+
+<Layout>
+  <main class="admin-shell">
+    <section id="admin-dashboard" class="admin-panel" hidden>
+      <header class="admin-header">
+        <div class="admin-brand">CHOPIN / CONTENT MANAGER</div>
+        <button type="button" id="logout-btn" class="admin-btn-ghost">LOGOUT</button>
+      </header>
+
+      <nav class="admin-tabs">
+        <button type="button" class="admin-tab is-active" data-tab="profile">PROFILE</button>
+        <button type="button" class="admin-tab" data-tab="skills">SKILLS</button>
+        <button type="button" class="admin-tab" data-tab="certificates">CERTIFICATES</button>
+        <button type="button" class="admin-tab" data-tab="experience">EXPERIENCE</button>
+        <button type="button" class="admin-tab" data-tab="projects">PROJECTS</button>
+      </nav>
+
+      <p id="admin-status" class="admin-status" hidden></p>
+
+      <!-- PROFILE: intro + about + contact -->
+      <section data-panel="profile" class="admin-panel-body is-active">
+        <div class="admin-editor">
+        <form id="profile-form" class="admin-form">
+          <fieldset>
+            <legend>INTRO</legend>
+            <label>Nama lengkap<input name="intro_name" required /></label>
+            <label>Role<input name="intro_role" /></label>
+            <label>Faction<input name="intro_faction" /></label>
+            <label>Race<input name="intro_race" /></label>
+            <label>Foto casual (URL)
+              <input name="intro_photo_casual" />
+              <input type="file" data-upload-target="intro_photo_casual" accept="image/*" />
+            </label>
+            <label>Foto formal (URL)
+              <input name="intro_photo_formal" />
+              <input type="file" data-upload-target="intro_photo_formal" accept="image/*" />
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>ABOUT</legend>
+            <label>Bio (bisa pakai tag &lt;strong&gt;/&lt;em&gt;)<textarea name="about_bio" rows="4"></textarea></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>ABOUT — CORE &amp; SUPPORTING CAPABILITIES</legend>
+            <div data-list="about_skills" class="admin-list"></div>
+            <button type="button" class="admin-btn-ghost" data-add="about_skills">+ TAMBAH SKILL</button>
+          </fieldset>
+
+          <fieldset>
+            <legend>ABOUT — META ROWS</legend>
+            <div data-list="about_meta" class="admin-list"></div>
+            <button type="button" class="admin-btn-ghost" data-add="about_meta">+ TAMBAH META</button>
+          </fieldset>
+
+          <fieldset>
+            <legend>CONTACT</legend>
+            <label>Email<input name="contact_email" /></label>
+            <label>GitHub<input name="contact_github" /></label>
+            <label>LinkedIn<input name="contact_linkedin" /></label>
+          </fieldset>
+
+          <button type="submit">SIMPAN PROFILE</button>
+        </form>
+        </div>
+        <aside class="admin-preview" data-preview="profile">
+          <span class="admin-preview-label">LIVE PREVIEW</span>
+          <div class="intro-preview-card">
+            <img id="preview-photo" alt="Preview foto" />
+            <h3 id="preview-name"></h3>
+            <p id="preview-meta-line" class="admin-hint"></p>
+          </div>
+          <p class="about-copy" id="preview-bio"></p>
+          <div class="about-glass-skills-list" id="preview-skills"></div>
+          <div class="about-meta" id="preview-meta"></div>
+          <div class="contact-info" id="preview-contact"></div>
+        </aside>
+      </section>
+
+      <!-- SKILLS & PROGRESS -->
+      <section data-panel="skills" class="admin-panel-body">
+        <div class="admin-editor">
+        <div class="admin-block">
+          <h2>SKILL GROUPS</h2>
+          <div data-list="skill_groups" class="admin-list"></div>
+          <button type="button" class="admin-btn-ghost" data-add="skill_groups">+ TAMBAH GROUP</button>
+          <button type="button" id="save-skill-groups">SIMPAN SKILL GROUPS</button>
+        </div>
+        <div class="admin-block">
+          <h2>PROGRESS BARS</h2>
+          <div data-list="progress_items" class="admin-list"></div>
+          <button type="button" class="admin-btn-ghost" data-add="progress_items">+ TAMBAH PROGRESS</button>
+          <button type="button" id="save-progress-items">SIMPAN PROGRESS</button>
+        </div>
+        </div>
+        <aside class="admin-preview" data-preview="skills">
+          <span class="admin-preview-label">LIVE PREVIEW</span>
+          <div id="preview-skill-groups"></div>
+          <div class="progress-list" id="preview-progress"></div>
+        </aside>
+      </section>
+
+      <!-- CERTIFICATES -->
+      <section data-panel="certificates" class="admin-panel-body">
+        <div class="admin-editor">
+        <div class="admin-block">
+          <h2>CERTIFICATES</h2>
+          <div data-list="certificates" class="admin-list"></div>
+          <button type="button" class="admin-btn-ghost" data-add="certificates">+ TAMBAH SERTIFIKAT</button>
+          <button type="button" id="save-certificates">SIMPAN SERTIFIKAT</button>
+        </div>
+        </div>
+        <aside class="admin-preview" data-preview="certificates">
+          <span class="admin-preview-label">LIVE PREVIEW</span>
+          <div id="preview-certificates"></div>
+        </aside>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section data-panel="experience" class="admin-panel-body">
+        <div class="admin-editor">
+        <div class="admin-block">
+          <h2>EXPERIENCE / ROADMAP</h2>
+          <div data-list="experience_items" class="admin-list"></div>
+          <button type="button" class="admin-btn-ghost" data-add="experience_items">+ TAMBAH ENTRY</button>
+          <button type="button" id="save-experience-items">SIMPAN EXPERIENCE</button>
+        </div>
+        </div>
+        <aside class="admin-preview" data-preview="experience">
+          <span class="admin-preview-label">LIVE PREVIEW</span>
+          <div id="preview-experience"></div>
+        </aside>
+      </section>
+
+      <!-- PROJECTS -->
+      <section data-panel="projects" class="admin-panel-body">
+        <div class="admin-editor admin-editor--full">
+        <div class="admin-block">
+          <h2>SYNC PROJECTS DARI GITHUB</h2>
+          <p class="admin-hint">Isi nama repo yang mau ditampilkan, pisahkan dengan koma atau baris baru. Urutan menentukan urutan tampil. Repo milik sendiri cukup nama repo-nya (mis. <code>animerch</code>); repo kontribusi di akun lain pakai format <code>owner/repo</code> (mis. <code>octocat/hello-world</code>).</p>
+          <textarea id="featured-repo-names" rows="3" placeholder="animerch, hris_system, octocat/hello-world"></textarea>
+          <button type="button" id="sync-github-btn">SYNC DARI GITHUB</button>
+          <p id="sync-status" class="admin-hint"></p>
+          <h3>Project tersimpan saat ini</h3>
+          <p class="admin-hint">Hapus gambar yang tidak mau ditampilkan, atau upload gambar pengganti. Klik simpan untuk menerapkan perubahan gambar.</p>
+          <div data-list="projects_preview" class="admin-list"></div>
+          <button type="button" id="save-project-images">SIMPAN PERUBAHAN GAMBAR</button>
+        </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    import "../scripts/admin.js";
+  </script>
+</Layout>

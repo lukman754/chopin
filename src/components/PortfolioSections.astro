@@ -4,6 +4,30 @@ import BodyRail from "./BodyRail.astro";
 import TechRail from "./TechRail.astro";
 import IntroSection from "./IntroSection.astro";
 import CertificateSection from "./CertificateSection.astro";
+import {
+  getProfile,
+  getSkillGroups,
+  getProgressItems,
+  getExperienceItems,
+  getFeaturedProjects,
+} from "../lib/content";
+
+const profile = await getProfile();
+const skillGroups = await getSkillGroups();
+const progressItems = await getProgressItems();
+const experienceItems = await getExperienceItems();
+const projects = await getFeaturedProjects();
+
+// Icons for known about-skill labels; unrecognized labels (added via admin) get a generic icon.
+const aboutSkillIcons: Record<string, string> = {
+  "web development": `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>`,
+  database: `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>`,
+  automation: `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>`,
+  "data processing": `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>`,
+  "ui/ux": `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="5" height="7" x="16" y="14" rx="1"/></svg>`,
+  "graphic designer": `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>`,
+};
+const defaultSkillIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>`;
 ---
 
 <main>
@@ -93,9 +117,7 @@ import CertificateSection from "./CertificateSection.astro";
 
       <div class="about-grid">
         <div>
-          <p class="about-copy">
-            Saya <strong>Lukman Muludin</strong> (Chopin), seorang lulusan <strong>Sistem Informasi</strong> dan <strong>Web Developer</strong> yang aktif menerapkan <strong>AI-assisted development</strong> dalam alur kerja pembuatan perangkat lunak. Saya mengombinasikan fundamental programming, manajemen database, serta <em>system thinking</em> melalui pendekatan <strong>learning by building</strong>—belajar dari praktik dan eksekusi proyek nyata.
-          </p>
+          <p class="about-copy" set:html={profile.about_bio} />
           <div class="about-skills-glass-card">
             <div class="hero-glass-grain" aria-hidden="true"></div>
             <div class="about-glass-header">
@@ -106,58 +128,83 @@ import CertificateSection from "./CertificateSection.astro";
               <span class="about-glass-badge">CHOPIN.SYS</span>
             </div>
             <div class="about-glass-skills-list">
-              <span class="glass-skill-chip glass-skill-chip--core">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-                <strong>Web Development</strong>
-              </span>
-              <span class="glass-skill-chip">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
-                <span>Database</span>
-              </span>
-              <span class="glass-skill-chip">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-                <span>Automation</span>
-              </span>
-              <span class="glass-skill-chip">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
-                <span>Data Processing</span>
-              </span>
-              <span class="glass-skill-chip">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-template"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="5" height="7" x="16" y="14" rx="1"/></svg>
-                <span>UI/UX</span>
-              </span>
-              <span class="glass-skill-chip">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
-                <span>Graphic Designer</span>
-              </span>
+              {profile.about_skills.map((skill) => (
+                <span class:list={['glass-skill-chip', skill.core && 'glass-skill-chip--core']}>
+                  <span set:html={aboutSkillIcons[skill.label.toLowerCase()] ?? defaultSkillIcon} />
+                  {skill.core ? <strong>{skill.label}</strong> : <span>{skill.label}</span>}
+                </span>
+              ))}
             </div>
           </div>
         </div>
 
         <div class="about-meta">
-          <div class="meta-row"><span>CORE IDENTITY</span><span>WEB DEVELOPER</span></div>
-          <div class="meta-row"><span>BACKGROUND</span><span>INFORMATION SYSTEMS GRADUATE</span></div>
-          <div class="meta-row"><span>WORKFLOW</span><span>AI-ASSISTED DEVELOPMENT</span></div>
-          <div class="meta-row"><span>METHODOLOGY</span><span>SYSTEM THINKING & DB LOGIC</span></div>
-          <div class="meta-row"><span>APPROACH</span><span>LEARNING BY BUILDING</span></div>
+          {profile.about_meta.map((row) => (
+            <div class="meta-row"><span>{row.label}</span><span>{row.value}</span></div>
+          ))}
         </div>
       </div>
     </div>
   </section>
 
   <!-- SECTION 03: PROJECTS -->
-  <section class="section projects" id="projects"><div class="container"><div class="section-head"><div><div class="section-kicker">03 / SELECTED WORKS</div><h2 class="section-title">PROJECT<br /><span>ARCHIVE.</span></h2></div><p class="section-copy">Kumpulan project dari tugas kuliah, eksperimen, kebutuhan bisnis, sampai automation tools.</p></div><div class="project-list">{["ORDERIN","MENTARI","SPK SYSTEM","LM STORE","DATA SYSTEMS"].map((title,index)=><article class:list={['project-card',index===0&&'project-featured']}><div class="project-index">0{index+1}</div><div class="project-info"><div class="project-category">WEB SYSTEM / INFORMATION SYSTEM</div><h3 class="project-title">{title}</h3><p class="project-desc">Sistem dan eksperimen digital untuk menyelesaikan problem nyata dengan web, database, automation, dan data.</p><div class="project-stack"><span class="skill-pill">PHP</span><span class="skill-pill">JAVASCRIPT</span><span class="skill-pill">MYSQL</span></div><a href="#contact" class="project-link">VIEW PROJECT</a></div><div class="project-visual"><div class="visual-yellow"></div><div class="visual-frame"></div><div class="visual-code">{title}<br />STATUS: ONLINE</div></div></article>)}</div></div></section>
+  <section class="section projects" id="projects"><div class="container"><div class="section-head"><div><div class="section-kicker">03 / SELECTED WORKS</div><h2 class="section-title">PROJECT<br /><span>ARCHIVE.</span></h2></div><p class="section-copy">Kumpulan repository dari GitHub gue, langsung ditarik dari <a href="https://github.com/lukman754" target="_blank" rel="noopener noreferrer">github.com/lukman754</a>.</p></div>{projects.length===0?<p class="section-copy">Belum ada project untuk ditampilkan.</p>:<div class="project-list">{projects.map((project,index)=><article class="project-card post-card">
+    <div class="post-header">
+      <div class="post-avatar">0{index+1}</div>
+      <div class="post-meta">
+        <h3 class="post-name">{project.repo_name}</h3>
+        <span class="post-handle">@{project.owner} · {project.language}</span>
+      </div>
+    </div>
+    <p class="post-caption">{project.description}</p>
+    {project.images.length>0?
+      <div class="post-media" data-project-carousel>
+        <div class="post-media-track" data-project-track>
+          {project.images.map((img,i)=>
+            <div class:list={['post-media-item', i===0&&'is-active']} data-project-slide>
+              <div class="post-media-swipe" aria-hidden="true"></div>
+              <img src={img} alt={`${project.repo_name} screenshot ${i+1}`} loading="lazy" class="project-image" />
+            </div>
+          )}
+        </div>
+        {project.images.length>1&&
+          <div class="post-media-nav">
+            <button type="button" class="post-media-btn" data-project-prev aria-label="Gambar sebelumnya">‹</button>
+            <span class="post-media-count" data-project-count>1 / {project.images.length}</span>
+            <button type="button" class="post-media-btn" data-project-next aria-label="Gambar selanjutnya">›</button>
+          </div>
+        }
+      </div>
+      :
+      <div class="post-media">
+        <div class="post-media-item post-media-empty">
+          <div class="empty-frame"></div>
+          <span class="empty-hole eh1"></span><span class="empty-hole eh2"></span><span class="empty-hole eh3"></span><span class="empty-hole eh4"></span>
+          <div class="empty-marker"></div>
+          <div class="empty-label">NO PREVIEW</div>
+          <div class="empty-text">EMPTY</div>
+        </div>
+      </div>
+    }
+    <div class="post-footer">
+      <div class="post-stats">
+        <span class="post-stat" title="Stars"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>{project.stars}</span>
+        <span class="post-stat" title="Forks"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9"/><path d="M12 12v3"/></svg>{project.forks}</span>
+      </div>
+      <a href={project.homepage||project.url} target="_blank" rel="noopener noreferrer" class="project-link">VIEW PROJECT</a>
+    </div>
+  </article>)}</div>}</div></section>
 
   <!-- SECTION 04: SKILLS -->
-  <section class="section" id="skills"><div class="container"><div class="section-head"><div><div class="section-kicker">04 / CAPABILITY MATRIX</div><h2 class="section-title">TOOLS<br /><span>& TECH.</span></h2></div><p class="section-copy">Tools yang digunakan untuk membangun aplikasi, mengolah data, dan mengotomatisasi pekerjaan.</p></div><div class="skills-grid"><div>{[['LANGUAGES','PHP','JavaScript','Python','SQL','HTML','CSS'],['FRAMEWORK / TOOLS','Bootstrap','Tailwind','CodeIgniter','Git','Composer'],['DATABASE','MySQL','MariaDB','phpMyAdmin']].map((group)=><div class="skill-group"><div class="skill-group-head"><span>{group[0]}</span><span>01</span></div><div class="skill-list">{group.slice(1).map((item)=><span class="skill-pill">{item}</span>)}</div></div>)}</div><div class="progress-list">{[['WEB DEVELOPMENT','90%'],['DATABASE / SQL','85%'],['AUTOMATION','82%'],['UI IMPLEMENTATION','86%'],['DATA / PYTHON','72%']].map(([label,value])=><div><div class="progress-label"><span>{label}</span><span>{value}</span></div><div class="progress-track"><div class="progress-fill" style={`width:${value}`}></div></div></div>)}</div></div><TechRail /></div></section>
+  <section class="section" id="skills"><div class="container"><div class="section-head"><div><div class="section-kicker">04 / CAPABILITY MATRIX</div><h2 class="section-title">TOOLS<br /><span>& TECH.</span></h2></div><p class="section-copy">Tools yang digunakan untuk membangun aplikasi, mengolah data, dan mengotomatisasi pekerjaan.</p></div><div class="skills-grid"><div>{skillGroups.map((group)=><div class="skill-group"><div class="skill-group-head"><span>{group.label}</span><span>01</span></div><div class="skill-list">{group.items.map((item)=><span class="skill-pill">{item}</span>)}</div></div>)}</div><div class="progress-list">{progressItems.map((item)=><div><div class="progress-label"><span>{item.label}</span><span>{item.value}%</span></div><div class="progress-track"><div class="progress-fill" style={`width:${item.value}%`}></div></div></div>)}</div></div><TechRail /></div></section>
 
   <CertificateSection />
 
   <!-- SECTION 05: EXPERIENCE -->
-  <section class="section experience" id="experience"><div class="container"><div class="section-head"><div><div class="section-kicker">05 / EXPERIENCE LOG</div><h2 class="section-title">FIELD<br /><span>ROADMAP.</span></h2></div><p class="section-copy">Lintasan akademik dan pengalaman lapangan yang membentuk cara gue membaca masalah lalu mengubahnya menjadi sistem.</p></div><div class="roadmap"><div class="roadmap-track"></div>{[['2026 / PRESENT','01','Software / Web Development','PERSONAL PROJECTS / FREELANCE / ACADEMIC'],['INTERNSHIP','02','IT / Student Support','FAKULTAS ILMU KOMPUTER'],['ACADEMIC','03','Information Systems','UNIVERSITAS PAMULANG']].map(([date,index,title,place],step)=><article class:list={['roadmap-stop',step%2===1?'roadmap-stop-reverse':'']}><div class="roadmap-marker"><span>{index}</span></div><div class="roadmap-card"><div class="roadmap-card-head"><span class="timeline-date">{date}</span><span class="roadmap-state">{step===0?'ACTIVE':'ARCHIVED'}</span></div><h3 class="timeline-title">{title}</h3><div class="timeline-place">{place}</div><p class="timeline-desc">Membangun aplikasi web, database system, automation tools, dan eksperimen teknologi untuk kebutuhan nyata maupun pembelajaran.</p><div class="roadmap-signal"><span></span><span></span><span></span></div></div></article>)}</div></div></section>
+  <section class="section experience" id="experience"><div class="container"><div class="section-head"><div><div class="section-kicker">05 / EXPERIENCE LOG</div><h2 class="section-title">FIELD<br /><span>ROADMAP.</span></h2></div><p class="section-copy">Lintasan akademik dan pengalaman lapangan yang membentuk cara gue membaca masalah lalu mengubahnya menjadi sistem.</p></div><div class="roadmap"><div class="roadmap-track"></div>{experienceItems.map((item,step)=><article class:list={['roadmap-stop',step%2===1&&'roadmap-stop-reverse']}><div class="roadmap-marker"><span>{item.index_label}</span></div><div class="roadmap-card"><div class="roadmap-card-head"><span class="timeline-date">{item.date_label}</span><span class="roadmap-state">{step===0?'ACTIVE':'ARCHIVED'}</span></div><h3 class="timeline-title">{item.title}</h3><div class="timeline-place">{item.place}</div><p class="timeline-desc">{item.description}</p><div class="roadmap-signal"><span></span><span></span><span></span></div></div></article>)}</div></div></section>
 
   <!-- SECTION 06: CONTACT -->
-  <section class="section" id="contact"><div class="container"><div class="contact-grid"><div><div class="section-kicker">06 / TRANSMISSION</div><h2 class="contact-title">LET'S<br /><span>BUILD.</span></h2><p class="section-copy" style="margin-top:28px">Punya ide, project, atau masalah yang perlu dibuatkan solusi digital? Kirim sinyal.</p><div class="contact-info"><div class="contact-row"><span>EMAIL</span><span>lukmanmauludin831@gmail.com</span></div><div class="contact-row"><span>GITHUB</span><span>github.com/lukman754</span></div><div class="contact-row"><span>LINKEDIN</span><span>linkedin.com/in/lukman-muludin</span></div></div></div><div class="contact-terminal"><div class="terminal-head">● chopin@portfolio:~$</div><div class="terminal-body"># initiate_connection<br /><br />$ echo <span class="terminal-yellow">"Hello, let's build."</span><br />connection_status: <span class="terminal-yellow">READY</span><br />response_time: &lt; 24h</div></div></div></div></section>
+  <section class="section" id="contact"><div class="container"><div class="contact-grid"><div><div class="section-kicker">06 / TRANSMISSION</div><h2 class="contact-title">LET'S<br /><span>BUILD.</span></h2><p class="section-copy" style="margin-top:28px">Punya ide, project, atau masalah yang perlu dibuatkan solusi digital? Kirim sinyal.</p><div class="contact-info"><div class="contact-row"><span>EMAIL</span><span>{profile.contact_email}</span></div><div class="contact-row"><span>GITHUB</span><span>{profile.contact_github}</span></div><div class="contact-row"><span>LINKEDIN</span><span>{profile.contact_linkedin}</span></div></div></div><div class="contact-terminal"><div class="terminal-head">● chopin@portfolio:~$</div><div class="terminal-body"># initiate_connection<br /><br />$ echo <span class="terminal-yellow">"Hello, let's build."</span><br />connection_status: <span class="terminal-yellow">READY</span><br />response_time: &lt; 24h</div></div></div></div></section>
 
 
 </main>

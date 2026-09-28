@@ -39,6 +39,68 @@ const certificateMarquee = document.querySelector("[data-certificate-marquee]");
 let lastScrollY = window.scrollY;
 let certificateShift = 0;
 
+document.querySelectorAll("[data-project-carousel]").forEach((carousel) => {
+  const track = carousel.querySelector("[data-project-track]");
+  const slides = [...carousel.querySelectorAll("[data-project-slide]")];
+  const countLabel = carousel.querySelector("[data-project-count]");
+  let activeIndex = 0;
+  let swipeTimer;
+
+  const playSwipe = () => {
+    carousel.classList.remove("is-swiping");
+    void carousel.offsetWidth;
+    carousel.classList.add("is-swiping");
+    window.clearTimeout(swipeTimer);
+    swipeTimer = window.setTimeout(
+      () => carousel.classList.remove("is-swiping"),
+      1400,
+    );
+  };
+
+  const render = () => {
+    track.style.transform = `translateX(-${activeIndex * 100}%)`;
+    slides.forEach((slide, index) =>
+      slide.classList.toggle("is-active", index === activeIndex),
+    );
+    if (countLabel)
+      countLabel.textContent = `${activeIndex + 1} / ${slides.length}`;
+  };
+
+  carousel
+    .querySelector("[data-project-prev]")
+    ?.addEventListener("click", () => {
+      activeIndex = (activeIndex - 1 + slides.length) % slides.length;
+      playSwipe();
+      render();
+    });
+  carousel
+    .querySelector("[data-project-next]")
+    ?.addEventListener("click", () => {
+      activeIndex = (activeIndex + 1) % slides.length;
+      playSwipe();
+      render();
+    });
+});
+
+// Reveal project screenshots with the same "lines -> invert -> clean" motif once loaded.
+document
+  .querySelectorAll(".post-media-item .project-image")
+  .forEach((image) => {
+    const slide = image.closest(".post-media-item");
+    if (!slide) return;
+    if (image.complete && image.naturalWidth > 0) {
+      slide.classList.add("no-swipe-anim");
+      return;
+    }
+    image.addEventListener(
+      "load",
+      () => slide.classList.add("is-image-loaded"),
+      {
+        once: true,
+      },
+    );
+  });
+
 window.addEventListener(
   "scroll",
   () => {
@@ -201,14 +263,15 @@ const setSidebarOpen = (open) => {
   );
 };
 
-
-
 const menuToggleIcon = document.getElementById("menuToggleIcon");
 let currentMenuIconHref = "";
 
 const updateMenuToggleIcon = (targetHref) => {
-  if (!menuToggleIcon || !targetHref || targetHref === currentMenuIconHref) return;
-  const activeLink = document.querySelector(`.sidebar-link[href="${targetHref}"]`);
+  if (!menuToggleIcon || !targetHref || targetHref === currentMenuIconHref)
+    return;
+  const activeLink = document.querySelector(
+    `.sidebar-link[href="${targetHref}"]`,
+  );
   const iconHtml = activeLink?.querySelector(".sidebar-icon")?.innerHTML;
   if (!iconHtml) return;
 
@@ -228,10 +291,7 @@ document.querySelectorAll(".sidebar-link").forEach((link) => {
     setSidebarOpen(false);
     const targetHref = link.getAttribute("href");
     document.querySelectorAll(".sidebar-link").forEach((item) => {
-      item.classList.toggle(
-        "active",
-        item.getAttribute("href") === targetHref,
-      );
+      item.classList.toggle("active", item.getAttribute("href") === targetHref);
     });
     if (targetHref) updateMenuToggleIcon(targetHref);
   });
@@ -356,7 +416,10 @@ const observer = new IntersectionObserver(
 );
 
 sections.forEach((section) => observer.observe(section));
-updateMenuToggleIcon(document.querySelector(".sidebar-link.active")?.getAttribute("href") || "#intro");
+updateMenuToggleIcon(
+  document.querySelector(".sidebar-link.active")?.getAttribute("href") ||
+    "#intro",
+);
 
 const revealTargets = document.querySelectorAll(
   ".hero-top, .hero-mode, .section-head, .about-grid, .about-assets, " +
@@ -384,5 +447,3 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealTargets.forEach((element) => revealObserver.observe(element));
-
-
